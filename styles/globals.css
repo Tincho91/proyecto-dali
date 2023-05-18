@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.slide {
+    transform: scale(0.7);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+  
+.activeSlide {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.separadorIzquierdo::after, .separadorDerecho::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    height: 10px; 
+    background: linear-gradient(to top, hsla(0, 0%, 0%, 0.2), transparent);
+    z-index: 10;
+}
+
+.box1:hover {
+    background-image: url("/images/servicios2.png");
+}
+  
+.box2:hover {
+    background-image: url("/images/servicios4.png");
+}
