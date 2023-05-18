@@ -25,7 +25,7 @@ const PrimerSeparator = () => {
       >
         <Text 
             color={"white"}
-            fontSize={{base: "5.5vw", md: "4.5vw", lg: "50px"}}
+            fontSize={{base: "6.5vw", md: "4.5vw", lg: "50px"}}
             fontWeight={800}
             letterSpacing='0.1em'
         >

@@ -48,7 +48,7 @@ const Carousel = ({ images }) => {
         settings: {
           slidesToShow: 3,
           centerMode: true,
-          centerPadding: "0px",
+          centerPadding: "175px",
         },
       },
     ],
@@ -72,7 +72,7 @@ const Carousel = ({ images }) => {
                 sm: isLandscape ? "180px" : "360px",
                 md: isLandscape ? "150px" : "360px",
                 lg: isLandscape ? "125px" : "360px",
-                xl: isLandscape ? "175px" : "360px",
+                xl: isLandscape ? "175px" : "570px",
               }}
               objectFit="contain"
               mx={"auto"}

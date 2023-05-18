@@ -1,24 +1,25 @@
 "use client";
-import { Box, Grid, Heading, Text, Flex, Image } from "@chakra-ui/react";
+import { Box, Grid, Heading, Text, Flex } from "@chakra-ui/react";
 
 const Servicios = () => {
   return (
-    <Box>
+    <Box pt={"3vh"}>
       <Box width={"100%"} maxW={"1200px"} mx={"auto"}>
         <Grid
           templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
-          zIndex="1" // Add a zIndex value here
+          zIndex="1"
         >
           <Box
             className="box1"
-            maxH="70vh"
-            width={{ base: "100vw", md: "100%" }}
-            maxW={"50vw"}
+            minH={{ base: "50vw", md: "60vh" }}
+            maxH={'100%'}
+            width={"100%"}
             bgImage="/images/servicios1.png"
             bgPosition="center"
             bgRepeat="no-repeat"
             bgSize="cover"
             transition="background-image 0.3s"
+            order={{ base: 2, md: 1 }}
           />
           <Flex
             flexDirection="column"
@@ -26,11 +27,11 @@ const Servicios = () => {
             justifyContent="center"
             padding={"15%"}
             maxH="70vh"
-            maxW={"50vw"}
+            order={{ base: 1, md: 2 }}
           >
             <Heading
               color={"primary.400"}
-              fontSize={"2.3vw"}
+              fontSize={{base:"6.5vw", md: "3vh"}}
               lineHeight={"2em"}
               textAlign={"center"}
               fontWeight={900}
@@ -39,7 +40,7 @@ const Servicios = () => {
             </Heading>
             <Text
               color={"gray.500"}
-              fontSize={"1.8vw"}
+              fontSize={{base:"2.5vw", md: "2vh"}}
               lineHeight={"2em"}
               textAlign={"center"}
               fontWeight={500}
@@ -56,11 +57,11 @@ const Servicios = () => {
             justifyContent="center"
             padding={"15%"}
             maxH="70vh"
-            maxW={"50vw"}
+            order={3}
           >
             <Heading
               color={"primary.400"}
-              fontSize={"2.3vw"}
+              fontSize={{base:"6.5vw", md: "3vh"}}
               lineHeight={"2em"}
               textAlign={"center"}
               fontWeight={900}
@@ -69,7 +70,7 @@ const Servicios = () => {
             </Heading>
             <Text
               color={"gray.500"}
-              fontSize={"1.8vw"}
+              fontSize={{base:"2.5vw", md: "2vh"}}
               lineHeight={"2em"}
               textAlign={"center"}
               fontWeight={500}
@@ -83,6 +84,8 @@ const Servicios = () => {
             </Text>
           </Flex>
           <Box
+            minH={{ base: "50vw", md: "60vh"}}
+            maxH={'100%'}
             className="box2"
             width={{ base: "100%", md: "100%" }}
             bgImage="/images/servicios3.png"
@@ -90,8 +93,7 @@ const Servicios = () => {
             bgRepeat="no-repeat"
             bgSize="cover"
             transition="background-image 0.3s"
-            maxH="70vh"
-            maxW={"50vw"}
+            order={4}
           />
         </Grid>
       </Box>
