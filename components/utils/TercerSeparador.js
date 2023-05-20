@@ -5,7 +5,7 @@ const TercerSeparador = () => {
   return (
     <Flex
       position="relative"
-      height="15vh"
+      height="8vh"
       minW={"50vw"}
       alignItems="center"
       justifyContent="center"

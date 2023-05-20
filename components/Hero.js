@@ -1,4 +1,3 @@
-'use client'
 import React from "react";
 import Slider from "react-slick";
 import {
@@ -20,20 +19,30 @@ const Hero = () => {
     {
       src: "/images/hero1.png",
       textParts: [
-        { text: "Apostamos a la", highlighted: false },
+        { text: "Apostamos a la ", highlighted: false },
         { text: "ECONOMIA CIRCULAR", highlighted: true },
-        { text: "como modelo productivo", highlighted: false },
+        { text: " como modelo productivo", highlighted: false },
       ],
-      position: { top: "20%", left: "10%", right: "10%" },
+      position: {
+        base: { top: "30%", left: "5%", maxWidth: "39%" },
+        md: { top: "35%", left: "5%", maxWidth: "39%" },
+        lg: { top: "35%", left: "5%", maxWidth: "39%" },
+      },
+      fontSize: { base: "4vw", md: "3vw", lg: "2.5vw", xl: "35px" },
     },
     {
       src: "/images/hero2.png",
       textParts: [
         { text: "Nuestros PROCESOS", highlighted: true },
-        { text: "mejoran la competitividad y la", highlighted: false },
+        { text: " mejoran la competitividad y la ", highlighted: false },
         { text: "EFICIENCIA", highlighted: true },
       ],
-      position: { top: "40%", left: "5%" },
+      position: {
+        base: { top: "40%", right: "5%", maxWidth: "50%" },
+        md: { top: "20%", left: "5%", right: "20%", maxWidth: "35%" },
+        lg: { top: "20%", left: "5%", right: "20%", maxWidth: "35%" },
+      },
+      fontSize: { base: "4vw", md: "3vw", lg: "2.5vw", xl: "35px" },
     },
   ];
 
@@ -47,7 +56,7 @@ const Hero = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 500000,
     pauseOnHover: false,
     fade: true,
   };
@@ -71,40 +80,45 @@ const Hero = () => {
         position="relative"
       >
         <Slider as="Box" {...settings} adaptiveHeight>
-          {carouselItems.map((item, index) => (
-            <Box position="relative" h={sliderHeight} key={index}>
-              <Image
-                src={item.src}
-                alt={`Slide ${index + 1}`}
-                boxSize="full"
-                objectFit="cover"
-                rounded={"xl"}
-              />
-              <Box position="absolute" zIndex={2} {...item.position}>
-                <Text fontSize="xl" color="white">
-                  {item.textParts.map((part, partIndex) =>
-                    part.highlighted ? (
-                      <Box
-                        as="span"
-                        bg="#489F82"
-                        color="white"
-                        px={1}
-                        borderRadius="md"
-                        whiteSpace="nowrap"
-                        key={partIndex}
-                      >
-                        {part.text}
-                      </Box>
-                    ) : (
-                      <Box as="span" key={partIndex}>
-                        {part.text}
-                      </Box>
-                    )
-                  )}
-                </Text>
+          {carouselItems.map((item, index) => {
+            const position = useBreakpointValue(item.position);
+            const fontSize = useBreakpointValue(item.fontSize);
+
+            return (
+              <Box position="relative" h={sliderHeight} key={index}>
+                <Image
+                  src={item.src}
+                  alt={`Slide ${index + 1}`}
+                  boxSize="full"
+                  objectFit="cover"
+                  rounded={"xl"}
+                />
+                <Box position="absolute" zIndex={2} {...position}>
+                  <Text fontSize={fontSize} color="white">
+                    {item.textParts.map((part, partIndex) =>
+                      part.highlighted ? (
+                        <Box
+                          as="span"
+                          bg="#489F82"
+                          color="white"
+                          px={1}
+                          borderRadius="md"
+                          whiteSpace="nowrap"
+                          key={partIndex}
+                        >
+                          {part.text}
+                          </Box>
+                        ) : (
+                          <Box as="span" key={partIndex}>
+                            {part.text}
+                          </Box>
+                        )
+                      )}
+                  </Text>
+                </Box>
               </Box>
-            </Box>
-          ))}
+            );
+          })}
         </Slider>
       </Box>
       <Box
@@ -125,7 +139,7 @@ const Hero = () => {
           left="50%"
           transform="translateX(-50%)"
           mt={2}
-          color={" black "}
+          color={"black"}
           bg={"primary.450"}
         />
       </animated.div>

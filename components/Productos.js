@@ -69,7 +69,7 @@ const Productos = () => {
 
   return (
     <Box mt={"13vh"} bg="primary.400" position={"relative"}>
-      <Box transform={isLandscape ? "translateY(-20px)" : "translateY(-20px)"}>
+      <Box transform={isLandscape ? "translateY(-6vh)" : "translateY(-20px)"}>
         <PrimerSeparator />
       </Box>
       <Box>

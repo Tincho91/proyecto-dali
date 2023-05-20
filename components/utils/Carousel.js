@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from "react";
 import Slider from "react-slick";
 import {
@@ -15,40 +16,59 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Carousel = ({ images }) => {
   const [current, setCurrent] = useState(0);
-  const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
+  const [isLandscape] = useMediaQuery("(orientation: landscape)");
 
   const settings = {
     arrows: false,
     centerMode: true,
     infinite: true,
-    slidesToShow: 5,
-    centerPadding: "0px",
+    slidesToShow: 1,
+    centerPadding: "37%",
     beforeChange: (current, next) => setCurrent(next),
     responsive: [
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          centerMode: true,
           autoplay: true,
           autoplaySpeed: 4000,
-          centerPadding: "70px",
+          centerPadding: "27%",
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          centerMode: true,
-          centerPadding: "150px",
+          autoplay: true,
+          autoplaySpeed: 4000,
+          centerPadding: "30%",
         },
       },
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 3,
-          centerMode: true,
-          centerPadding: "175px",
+          slidesToShow: 1,
+          autoplay: true,
+          autoplaySpeed: 4000,
+          centerPadding: "32%",
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 1,
+          autoplay: true,
+          autoplaySpeed: 4000,
+          centerPadding: "33%",
+        },
+      },
+      {
+        breakpoint: 1536,
+        settings: {
+          slidesToShow: 1,
+          autoplay: true,
+          autoplaySpeed: 4000,
+          centerPadding: "35%",
         },
       },
     ],
@@ -74,6 +94,8 @@ const Carousel = ({ images }) => {
                 lg: isLandscape ? "125px" : "360px",
                 xl: isLandscape ? "175px" : "570px",
               }}
+              minW={{ base: "200px", md: "300px", lg: "400px" }} // Added minimum width here
+              minH={{ base: "200px", md: "300px", lg: "400px" }} // Added minimum height here
               objectFit="contain"
               mx={"auto"}
             />

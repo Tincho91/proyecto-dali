@@ -3,7 +3,7 @@ import { keyframes } from '@emotion/react';
 
 const spin = keyframes`
   from { transform: rotate(0deg); }
-  to { transform: rotate(0deg); }
+  to { transform: rotate(180deg); }
 `;
 
 const RotatingImage = ({ src, alt, ...rest }) => (

@@ -3,6 +3,7 @@
 
 body {
     font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
 }
 
 .slide {
@@ -33,4 +34,8 @@ body {
   
 .box2:hover {
     background-image: url("/images/servicios4.png");
+}
+
+.box3:hover {
+    background-image: url("/images/servicios6.png");
 }
