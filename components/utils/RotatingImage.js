@@ -1,15 +1,24 @@
-import { Box, Image } from '@chakra-ui/react';
-import { keyframes } from '@emotion/react';
+import React from 'react';
+import { useSpring, animated } from 'react-spring';
+import { Box } from "@chakra-ui/react";
 
-const spin = keyframes`
-  from { transform: rotate(0deg); }
-  to { transform: rotate(0deg); }
-`;
+const RotatingImage = ({ src, alt }) => {
+  const rotation = useSpring({
+    from: { transform: "rotate(0deg)" },
+    to: { transform: "rotate(360deg)" },
+    loop: true,
+    config: { duration: 50000 }, // This controls the speed of the rotation
+  });
 
-const RotatingImage = ({ src, alt, ...rest }) => (
-    <Box display="flex" justifyContent="center" animation={`${spin} 20s linear infinite`}>
-        <Image display="block" src={src} alt={alt} {...rest} maxH={'60vw'}/>
-    </Box>
-);
+  return (
+    <Box
+      as={animated.div}
+      w="100%"
+      h="100%"
+      overflow="hidden"
+      style={{ ...rotation, backgroundImage: `url(${src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+    />
+  );
+};
 
 export default RotatingImage;

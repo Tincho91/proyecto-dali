@@ -7,10 +7,7 @@ const Sustentabilidad = () => {
   return (
     <Box>
       <Flex
-        p={5}
-        justifyContent="space-between"
-        alignItems="center"
-        overflow="hidden"
+        p={10}
         height={"50vh"}
         zIndex="1"
         w={"100%"}
@@ -18,7 +15,8 @@ const Sustentabilidad = () => {
       >
         <Box w={"100%"} maxW={"1200px"} mx={"auto"}>
           <Box
-            justifyContent={{base: "center"}}
+            width={"75%"}
+            textAlign={"left"}
           >
             <Text 
               color={"white"} 
@@ -30,12 +28,12 @@ const Sustentabilidad = () => {
             >
               SUSTENTABILIDAD
             </Text>
-            <Text color={"white"} mb={3} >
+            <Text color={"white"} mb={5} fontSize={{base: "15px", md: "1.4vw"}}>
               Apostamos a la economía circular como modelo productivo para el
               cuidado del medio ambiente, y también como una manera de mejorar la
               competitividad y la eficiencia de los recursos disponibles.
             </Text>
-            <Text color={"white"}>
+            <Text color={"white"} fontSize={{base: "15px", md: "1.4vw"}}>
               Entenemos que el desarrollo sustentable requiere el consumo
               responsable de plásticos, su separación y su reciclado.
             </Text>
@@ -44,11 +42,17 @@ const Sustentabilidad = () => {
         <Box
           position={"absolute"}
           zIndex="10"
+          className="whiteRecicle"
+          right={0}
+          top={{base:"55%" }}
+          transform={{base: "translateY(80%)"}}
+          height={"75vh"}
+          width={"75vh"}
         >
           <Image
             src="/images/ReCicleWhite.png"
             alt="Reciclaje"
-            className="recicleWhite"
+            
           />
         </Box>
       </Flex>

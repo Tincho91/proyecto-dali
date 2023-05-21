@@ -5,10 +5,8 @@ import {
   Image,
   useBreakpointValue,
   Text,
-  IconButton,
 } from "@chakra-ui/react";
-import { ArrowDownIcon } from "@chakra-ui/icons";
-import { useSpring, animated } from "react-spring";
+import { useSpring } from "react-spring";
 import RotatingImage from "./utils/RotatingImage";
 
 import "slick-carousel/slick/slick.css";
@@ -70,7 +68,7 @@ const Hero = () => {
   });
 
   return (
-    <>
+    <Box>
       <Box
         mt={7}
         width={"95%"}
@@ -122,28 +120,15 @@ const Hero = () => {
         </Slider>
       </Box>
       <Box
+        className="rotatingImage"
         position={"absolute"}
-        transform={"translateY(-60%)"}
-        right={0}
-        zIndex={0}
-        overflow={"visible"}
+        zIndex={"0"}
+        w="60vw"
+        h="60vw"
       >
         <RotatingImage src={rotatingImageSrc} alt="Rotating" />
       </Box>
-      <animated.div style={bounce}>
-        <IconButton
-          aria-label="Scroll down"
-          icon={<ArrowDownIcon />}
-          isRound={true}
-          size="lg"
-          left="50%"
-          transform="translateX(-50%)"
-          mt={2}
-          color={"black"}
-          bg={"primary.450"}
-        />
-      </animated.div>
-    </>
+    </Box>
   );
 };
 

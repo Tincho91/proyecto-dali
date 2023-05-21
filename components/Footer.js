@@ -14,9 +14,9 @@ const Footer = () => {
           </Link>
         </Flex>
         <Flex flexDirection="column" textAlign="center">
-          <Text color={"primary.400"} fontWeight={"700"} fontSize={{ base: "20px", md: "21px", lg: "23px"}}>223 5999980 (Compras y Ventas)</Text>
-          <Text color={"primary.400"} fontWeight={"700"} fontSize={{ base: "20px", md: "21px", lg: "23px"}}>223 6005501 (Administración)</Text>
-          <Text color={"primary.400"} fontWeight={"700"} fontSize={{ base: "20px", md: "21px", lg: "23px"}}>dalitermoplasticos@gmail.com</Text>
+          <Text color={"primary.400"} fontWeight={"700"} fontSize={{ base: "14px", md: "21px", lg: "23px"}}>223 5999980 (Compras y Ventas)</Text>
+          <Text color={"primary.400"} fontWeight={"700"} fontSize={{ base: "14px", md: "21px", lg: "23px"}}>223 6005501 (Administración)</Text>
+          <Text color={"primary.400"} fontWeight={"700"} fontSize={{ base: "14px", md: "21px", lg: "23px"}}>dalitermoplasticos@gmail.com</Text>
         </Flex>
         <Box /> {/* This is a placeholder to keep the balance in the layout */}
       </Flex>

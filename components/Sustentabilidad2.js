@@ -7,7 +7,7 @@ const Sustentabilidad2 = () => {
 
     return (
         <Box>
-            <Box position="relative" transform= "translateY(-8vh)" zIndex={1}>
+            <Box position="relative" transform= "translateY(-15vh)" zIndex={1}>
                 <TercerSeparador />
             </Box>
             <Box width={"100%"} maxW={"1200px"} mx={"auto"} transform={isLandscape ? "translateY(-8vh)" : "translateY(-20px)"}>

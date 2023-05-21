@@ -17,6 +17,10 @@ body {
     opacity: 1;
 }
 
+.rotatingImage {
+    transform: translateY(-60%);
+}
+
 .separadorIzquierdo::after, .separadorDerecho::after {
     content: "";
     position: absolute;
