@@ -1,58 +1,75 @@
-'use client'
+"use client";
 
 import { Box, Image, Text, Flex, Grid, useMediaQuery } from "@chakra-ui/react";
 import TercerSeparador from "./utils/TercerSeparador";
-import RotatingImage from "./utils/RotatingImage";
 
 const Sustentabilidad = () => {
   const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
+
   return (
     <Box>
       <Flex
-        p={10}
-        height={"50vh"}
+        pt={10}
+
+        height={{ base: "450px", md: "50vh" }}
         zIndex={3}
         w={"100%"}
         bg="gray.100"
         position={"relative"}
       >
-        <Box w={"100%"} maxW={"1200px"} mx={"auto"}>
-          <Box
-            width={{base: "100%", md: "70%"}}
-            textAlign={"left"}
+        <Box
+          w={"95%"}
+          maxW={"1200px"}
+          mx={"auto"}
+          display="grid"
+          gridTemplateColumns={{ base: "1fr", md: "3fr 1fr" }}
+          gap={1}
+        >
+          <Flex
+            textAlign={{ base: "center", md: "left" }}
+            direction={"column"}
           >
             <Text
               color={"white"}
-              mb={3}
-              fontSize={"4vw"}
+              pb={1}
+              fontSize={{ base: "5.5vw", md: "3vh" }}
               letterSpacing={8}
               fontWeight={800}
-              textAlign={{ base: "center", md: "left" }}
             >
               SUSTENTABILIDAD
             </Text>
             <Text
               color={"white"}
-              mb={5}
-              fontSize={{ base: "15px", md: "1.4vw" }}
+              pb={5}
+              fontSize={{ base: "14px", md: "1.4vw" }}
             >
               Apostamos a la economía circular como modelo productivo para el
               cuidado del medio ambiente, y también como una manera de mejorar
               la competitividad y la eficiencia de los recursos disponibles.
             </Text>
-            <Text color={"white"} fontSize={{ base: "15px", md: "1.4vw" }}>
-              Entenemos que el desarrollo sustentable requiere el consumo
+            <Text
+              color={"white"}
+              fontSize={{ base: "14px", md: "1.4vw" }}
+              pb={10}
+            >
+              Entendemos que el desarrollo sustentable requiere el consumo
               responsable de plásticos, su separación y su reciclado.
             </Text>
+          </Flex>
+          <Box
+            className="whiteRecicleImg"
+            position={{ base: "relative", md: "absolute" }}
+            height={{ base: "37vw", md: "65vh" }}
+            width={{ base: "37vw", md: "75vh" }}
+            display="flex"
+            justifyContent="center"
+            alignItems="flex-end"
+            margin="auto"
+            right={{ md: "0"}}
+            transform={{ md: "translateX(70%)", lg: "translateX(60%)", xl: "translateX(25vw)" }}
+          >
+            <Image src="/images/ReCicleWhite.png" alt="Reciclaje" />
           </Box>
-        </Box>
-        <Box
-          position={'absolute'}
-          height={"70vh"}
-          width={"70vw"}
-          transform={{base:"translateX(0%) translateY(-0%)", md:"translateX(90%) translateY(-30%)"}}
-        >
-          <Image src="/images/ReCicleWhite.png" alt="Reciclaje" />
         </Box>
       </Flex>
       <Box position="relative" transform="translateY(-15vh)" zIndex={2}>
@@ -89,9 +106,9 @@ const Sustentabilidad = () => {
           >
             <Text
               color={"gray.500"}
-              fontSize={{ base: "14px", md: "2vw" }}
+              fontSize={{ base: "14", md: "2vh" }}
               lineHeight={"2em"}
-              textAlign={"right"}
+              textAlign={"center"}
               fontWeight={500}
             >
               Somos miembros de la "Cámara de la Industria Plástica de Mar del
