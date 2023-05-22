@@ -75,7 +75,7 @@ const Productos = () => {
       <Box>
         <Carousel images={images} />
       </Box>
-      <Box transform={isLandscape ? "" : ""}>
+      <Box>
         <SegundoSeparator />
       </Box>
     </Box>

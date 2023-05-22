@@ -59,7 +59,7 @@ const Hero = () => {
     fade: true,
   };
 
-  const sliderHeight = useBreakpointValue({ base: "55vh", md: "auto" });
+  const sliderHeight = useBreakpointValue({ base: "40vh", md: "auto" });
 
   const bounce = useSpring({
     from: { transform: "translate3d(0,0px,0)" },

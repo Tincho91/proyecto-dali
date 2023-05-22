@@ -9,7 +9,7 @@ const Contacto = () => {
   const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
 
   return (
-    <Box bgGradient={gradient} p={8} transform={isLandscape ? "translateY(-8vh)" : "translateY(-20px)"}>
+    <Box bgGradient={gradient} p={8} transform={isLandscape ? "translateY(-11vh)" : "translateY(-20px)"}>
       <Box w={"100%"} maxW={"1200px"} mx={"auto"}>
         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={6}>
           <Box>

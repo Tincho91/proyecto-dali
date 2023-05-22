@@ -5,7 +5,6 @@ import Hero from './Hero';
 import Productos from './Productos';
 import Servicios from './Servicios';
 import Sustentabilidad from './Sustentabilidad';
-import Sustentabilidad2 from './Sustentabilidad2';
 import Contacto from './Contacto';
 import Footer from './Footer';
 import WhatsappButton from './utils/WhatsApp';
@@ -18,7 +17,6 @@ const Index = () => {
       <Productos />
       <Servicios />
       <Sustentabilidad />
-      <Sustentabilidad2 />
       <Contacto />
       <Footer />
       <WhatsappButton />

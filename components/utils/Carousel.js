@@ -32,7 +32,7 @@ const Carousel = ({ images }) => {
           slidesToShow: 1,
           autoplay: true,
           autoplaySpeed: 4000,
-          centerPadding: "27%",
+          centerPadding: "20%",
         },
       },
       {

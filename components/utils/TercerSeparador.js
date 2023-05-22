@@ -1,21 +1,18 @@
 import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 const TercerSeparador = () => {
   return (
     <Flex
-      position="relative"
       height="15vh"
       minW={"50vw"}
       alignItems="center"
       justifyContent="center"
       top={0}
-      zIndex={99}
     >
       <Flex
         flex="1"
         background="gray.100"
-        zIndex={"9"}
         height="100%"
         transform="skewY(6deg)"
         maxWidth={"50vw"}
@@ -28,7 +25,6 @@ const TercerSeparador = () => {
         flex="1"
         background="gray.100"
         height="100%"
-        zIndex={"9"}
         transform="skewY(-6deg)"
         maxWidth={"50vw"}
         alignItems="center"
