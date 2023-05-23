@@ -6,7 +6,7 @@ const Servicios = () => {
   const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
 
   return (
-    <Box pt={ isLandscape ? "17vh" : ""}>
+    <Box pt={ isLandscape ? "5" : ""}>
       <Box width={"100%"} maxW={"1200px"} mx={"auto"}>
         <Grid
           templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
@@ -14,7 +14,7 @@ const Servicios = () => {
         >
           <Box
             className="box1"
-            minH={{ base: "50vw", md: "60vh" }}
+            minH="60vh"
             maxH={'100%'}
             width={"100%"}
             bgImage="/images/servicios1.png"
@@ -34,8 +34,8 @@ const Servicios = () => {
           >
             <Text
               color={"primary.400"}
-              fontSize={{base: "6.5vw", md: "4.5vw", lg: "50px"}}
-              lineHeight={"2em"}
+              fontSize={{base: "6.5vw", md: "4.5vw", lg: "40px"}}
+              lineHeight={"1.2em"}
               textAlign={"center"}
               fontWeight={900}
             >
@@ -43,7 +43,7 @@ const Servicios = () => {
             </Text>
             <Text
               color={"gray.500"}
-              fontSize={{base:"14px", md: "2vh", lg: ""}}
+              fontSize={{base:"14px", md: "2vh", lg: "18px"}}
               lineHeight={"1.5em"}
               textAlign={"center"}
               fontWeight={500}
@@ -64,8 +64,8 @@ const Servicios = () => {
           >
             <Text
               color={"primary.400"}
-              fontSize={{base: "6.5vw", md: "4.5vw", lg: "50px"}}
-              lineHeight={"2em"}
+              fontSize={{base: "6.5vw", md: "4.5vw", lg: "40px"}}
+              lineHeight={"1.2em"}
               textAlign={"center"}
               fontWeight={900}
             >
@@ -73,7 +73,7 @@ const Servicios = () => {
             </Text>
             <Text
               color={"gray.500"}
-              fontSize={{base:"14px", md: "2vh", lg: ""}}
+              fontSize={{base:"14px", md: "2vh", lg: "18px"}}
               lineHeight={"1.5em"}
               textAlign={"center"}
               fontWeight={500}
