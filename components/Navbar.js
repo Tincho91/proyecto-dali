@@ -18,7 +18,7 @@ const Navbar = () => {
   const { y: scrollY } = useWindowScroll();
   const { isOpen, onToggle } = useDisclosure();
 
-  const showNavbar = scrollY > 300;
+  const showNavbar = scrollY > 100;
   const isMobileNav = useBreakpointValue({ base: true, md: false });
   const transitionDuration = "0.3s";
 
@@ -46,7 +46,7 @@ const Navbar = () => {
           <Image
             src="/images/dali-logo.png"
             alt="Dali Logo"
-            maxH="6em"
+            maxH="5em"
           />
         )}
         <Spacer />

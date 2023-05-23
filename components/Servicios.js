@@ -1,10 +1,12 @@
 'use client'
 
-import { Box, Grid, Text, Flex } from "@chakra-ui/react";
+import { Box, Grid, Text, Flex, useMediaQuery } from "@chakra-ui/react";
 
 const Servicios = () => {
+  const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
+
   return (
-    <Box pt={"2.5vh"}>
+    <Box pt={ isLandscape ? "17vh" : ""}>
       <Box width={"100%"} maxW={"1200px"} mx={"auto"}>
         <Grid
           templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}

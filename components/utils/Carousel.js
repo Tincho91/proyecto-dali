@@ -5,7 +5,6 @@ import {
   Box,
   Image,
   Text,
-  Heading,
   VStack,
   Flex,
   useMediaQuery,
@@ -116,25 +115,26 @@ const Carousel = ({ images }) => {
           width="100%"
           textAlign="center"
         >
-          <Heading
+          <Text
             fontSize={{
-              base: isLandscape ? "20px" : "6.5vw",
-              sm: isLandscape ? "2vh" : "6vw",
-              md: isLandscape ? "2vh" : "4vw",
-              lg: isLandscape ? "30px" : "60px",
+              base: "25px",
+              sm: isLandscape ? "8vh" : "6vw",
+              md: isLandscape ? "8vh" : "4vw",
+              lg: isLandscape ? "50px" : "60px",
+              xl: isLandscape ? "50px" : "60px",
             }}
+            fontWeight={"600"}
             color={"white"}
             pt={{ base: "0", sm: "10px", md: "25px" }}
           >
             {images[current]?.title}
-          </Heading>
+          </Text>
           <Text
             color={"white"}
             fontSize={{
-              base: isLandscape ? "sm" : "md",
-              md: isLandscape ? "md" : "lg",
+              base: "md",
+              md: "lg",
             }}
-            display={{ base: "none", sm: "block" }}
           >
             {images[current]?.text}
           </Text>

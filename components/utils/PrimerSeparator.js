@@ -23,11 +23,15 @@ const PrimerSeparator = () => {
         alignItems="center"
         justifyContent="center"
       >
-        <Text 
-            color={"white"}
-            fontSize={{base: "6.5vw", md: "4.5vw", lg: "50px"}}
-            fontWeight={800}
-            letterSpacing='0.1em'
+        <Text
+          color={"white"}
+          fontSize={{
+            base: isLandscape ? "5vw" : "6.5vw",
+            md: isLandscape ? "3vw" : "4.5vw",
+            lg: isLandscape ? "50px" : "50px",
+          }}
+          fontWeight={800}
+          letterSpacing="0.1em"
         >
           PRODUCTOS
         </Text>

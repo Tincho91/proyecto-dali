@@ -42,10 +42,14 @@ const SegundoSeparator = () => {
         top="50%"
       >
         <Text
-            color={"primary.400"}
-            fontSize={{base: "6.5vw", md: "4.5vw", lg: "50px"}}
-            fontWeight={800}
-            letterSpacing='0.1em'
+          color={"primary.400"}
+          fontSize={{
+            base: isLandscape ? "5vw" : "6.5vw",
+            md: isLandscape ? "3vw" : "4.5vw",
+            lg: isLandscape ? "50px" : "50px",
+          }}
+          fontWeight={800}
+          letterSpacing="0.1em"
         >
           SERVICIOS
         </Text>
