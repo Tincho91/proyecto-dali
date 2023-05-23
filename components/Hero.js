@@ -7,6 +7,7 @@ import {
   Image,
   useBreakpointValue,
   Text,
+  useMediaQuery
 } from "@chakra-ui/react";
 import { useSpring } from "react-spring";
 import RotatingImage from "./utils/RotatingImage";
@@ -15,6 +16,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Hero = () => {
+  const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
+  
   const carouselItems = [
     {
       src: "/images/hero1.png",
@@ -28,7 +31,12 @@ const Hero = () => {
         md: { top: "35%", left: "5%", maxWidth: "39%" },
         lg: { top: "35%", left: "5%", maxWidth: "39%" },
       },
-      fontSize: { base: "4vw", md: "3vw", lg: "2.5vw", xl: "35px" },
+      fontSize: {
+        base: isLandscape ? "2.5vw" : "4vw",
+        md: isLandscape ? "2.5vw" : "3vw",
+        lg: isLandscape ? "2.5vw" : "2.5vw",
+        xl: isLandscape ? "2.5vw" : "35px"
+      },
     },
     {
       src: "/images/hero2.png",
@@ -38,11 +46,16 @@ const Hero = () => {
         { text: "EFICIENCIA", highlighted: true },
       ],
       position: {
-        base: { top: "40%", right: "5%", maxWidth: "50%" },
+        base: { top: "40%", right: isLandscape ? "19%" : "5", maxWidth: isLandscape ? "35%" :  "50%" },
         md: { top: "20%", left: "5%", right: "20%", maxWidth: "35%" },
         lg: { top: "20%", left: "5%", right: "20%", maxWidth: "35%" },
       },
-      fontSize: { base: "4vw", md: "3vw", lg: "2.5vw", xl: "35px" },
+      fontSize: {
+        base: isLandscape ? "2.5vw" : "4vw",
+        md: isLandscape ? "2.5vw" : "3vw",
+        lg: isLandscape ? "2.5vw" : "2.5vw",
+        xl: isLandscape ? "2.5vw" : "35px"
+      },
     },
   ];
 
@@ -61,14 +74,6 @@ const Hero = () => {
     fade: true,
   };
 
-  const sliderHeight = useBreakpointValue({ base: "40vh", md: "auto" });
-
-  const bounce = useSpring({
-    from: { transform: "translate3d(0,0px,0)" },
-    to: { transform: "translate3d(0,15px,0)" },
-    loop: { reverse: true },
-  });
-
   return (
     <Box>
       <Box
@@ -85,7 +90,12 @@ const Hero = () => {
             const fontSize = useBreakpointValue(item.fontSize);
 
             return (
-              <Box position="relative" h={sliderHeight} key={index}>
+              <Box 
+                position="relative" 
+                minH={isLandscape ? "60vh" : "40vh"}
+                h={{ base: "40vh", md: "auto" }}
+                key={index}
+              >
                 <Image
                   src={item.src}
                   alt={`Slide ${index + 1}`}
