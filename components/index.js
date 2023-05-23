@@ -1,4 +1,5 @@
 'use client'
+
 import { Box } from '@chakra-ui/react';
 import Navbar from './Navbar';
 import Hero from './Hero';

@@ -1,6 +1,8 @@
-import { Box, Flex, Icon, Link, useBreakpointValue } from "@chakra-ui/react";
+'use client'
+
+import { Box, Flex, Text, Icon, Link, useBreakpointValue } from "@chakra-ui/react";
 import { FaInstagram, FaFacebookSquare } from "react-icons/fa";
-import ResponsiveText from "./utils/ResponsiveText";
+
 
 const Footer = () => {
   const flexDirection = useBreakpointValue({ base: "column", sm: "row" });
@@ -17,9 +19,9 @@ const Footer = () => {
           </Link>
         </Flex>
         <Flex flexDirection="column" textAlign="center">
-          <ResponsiveText color={"primary.400"} fontWeight={"700"} sizeFactor={1.5}>223 5999980 (Compras y Ventas)</ResponsiveText>
-          <ResponsiveText color={"primary.400"} fontWeight={"700"} sizeFactor={1.5}>223 6005501 (Administración)</ResponsiveText>
-          <ResponsiveText color={"primary.400"} fontWeight={"700"} sizeFactor={1.5}>dalitermoplasticos@gmail.com</ResponsiveText>
+          <Text color={"primary.400"} fontWeight={"700"} sizeFactor={1.5}>223 5999980 (Compras y Ventas)</Text>
+          <Text color={"primary.400"} fontWeight={"700"} sizeFactor={1.5}>223 6005501 (Administración)</Text>
+          <Text color={"primary.400"} fontWeight={"700"} sizeFactor={1.5}>dalitermoplasticos@gmail.com</Text>
         </Flex>
         <Box display={{base: "none", sm: "block"}} /> {/* This is a placeholder to keep the balance in the layout */}
       </Flex>

@@ -1,4 +1,5 @@
 'use client'
+
 import React from "react";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import PrimerSeparator from "./utils/PrimerSeparator";

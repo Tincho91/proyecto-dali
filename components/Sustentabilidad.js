@@ -10,9 +10,8 @@ const Sustentabilidad = () => {
     <Box>
       <Flex
         pt={10}
-
-        height={{ base: "450px", md: "50vh" }}
-        zIndex={3}
+        height={"50vh"}
+        zIndex={4}
         w={"100%"}
         bg="gray.100"
         position={"relative"}
@@ -22,57 +21,47 @@ const Sustentabilidad = () => {
           maxW={"1200px"}
           mx={"auto"}
           display="grid"
-          gridTemplateColumns={{ base: "1fr", md: "3fr 1fr" }}
+          gridTemplateColumns={"3fr 1fr"}
           gap={1}
+          h={"100%"}
         >
-          <Flex
-            textAlign={{ base: "center", md: "left" }}
-            direction={"column"}
-          >
+          <Flex textAlign={"left"} direction={"column"} w={"100%"}>
             <Text
               color={"white"}
-              pb={1}
-              fontSize={{ base: "5.5vw", md: "3vh" }}
-              letterSpacing={8}
+              pb={10}
+              letterSpacing={5}
               fontWeight={800}
+              fontSize={{ base: "6.5vw", md: "4.5vw", lg: "50px" }}
             >
               SUSTENTABILIDAD
             </Text>
-            <Text
-              color={"white"}
-              pb={5}
-              fontSize={{ base: "14px", md: "1.4vw" }}
-            >
+            <Text color={"white"} pb={10} sizeFactor={1.4}>
               Apostamos a la economía circular como modelo productivo para el
               cuidado del medio ambiente, y también como una manera de mejorar
               la competitividad y la eficiencia de los recursos disponibles.
             </Text>
-            <Text
-              color={"white"}
-              fontSize={{ base: "14px", md: "1.4vw" }}
-              pb={10}
-            >
+            <Text color={"white"} sizeFactor={1.4}>
               Entendemos que el desarrollo sustentable requiere el consumo
               responsable de plásticos, su separación y su reciclado.
             </Text>
           </Flex>
           <Box
-            className="whiteRecicleImg"
-            position={{ base: "relative", md: "absolute" }}
-            height={{ base: "37vw", md: "65vh" }}
-            width={{ base: "37vw", md: "75vh" }}
-            display="flex"
-            justifyContent="center"
-            alignItems="flex-end"
-            margin="auto"
-            right={{ md: "0"}}
-            transform={{ md: "translateX(70%)", lg: "translateX(60%)", xl: "translateX(25vw)" }}
+            className="image-container"
+            overflow="hidden"
+            transform={{base:`translateX(00%) translateY(-20%)`}}
+            height="75vh"
+            width="75vh"
           >
-            <Image src="/images/ReCicleWhite.png" alt="Reciclaje" />
+            <Image
+              src="/images/ReCicleWhite.png"
+              alt="Reciclaje"
+              height="100%"
+              width="100%"
+            />
           </Box>
         </Box>
       </Flex>
-      <Box position="relative" transform="translateY(-15vh)" zIndex={2}>
+      <Box position="relative" transform="translateY(-15vh)" zIndex={3}>
         <TercerSeparador />
       </Box>
       <Box
@@ -81,7 +70,7 @@ const Sustentabilidad = () => {
         mx={"auto"}
         transform={isLandscape ? "translateY(-11vh)" : "translateY(-20px)"}
         position={"relative"}
-        zIndex={1}
+        zIndex={2}
       >
         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
           <Box
@@ -92,7 +81,7 @@ const Sustentabilidad = () => {
             bgImage="/images/servicios5.png"
             bgPosition="center"
             bgRepeat="no-repeat"
-            bgSize="cover"
+            bgSize="fill"
             transition="background-image 0.3s"
             order={{ base: 2, md: 1 }}
           />

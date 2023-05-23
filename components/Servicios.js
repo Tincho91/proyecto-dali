@@ -1,5 +1,6 @@
-"use client";
-import { Box, Grid, Heading, Text, Flex } from "@chakra-ui/react";
+'use client'
+
+import { Box, Grid, Text, Flex } from "@chakra-ui/react";
 
 const Servicios = () => {
   return (
@@ -31,7 +32,7 @@ const Servicios = () => {
           >
             <Text
               color={"primary.400"}
-              fontSize={{base:"6.5vw", md: "3vh"}}
+              fontSize={{base: "6.5vw", md: "4.5vw", lg: "50px"}}
               lineHeight={"2em"}
               textAlign={"center"}
               fontWeight={900}
@@ -61,7 +62,7 @@ const Servicios = () => {
           >
             <Text
               color={"primary.400"}
-              fontSize={{base:"6.5vw", md: "3vh"}}
+              fontSize={{base: "6.5vw", md: "4.5vw", lg: "50px"}}
               lineHeight={"2em"}
               textAlign={"center"}
               fontWeight={900}

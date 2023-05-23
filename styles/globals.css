@@ -44,3 +44,7 @@ body {
     background-image: url("/images/servicios6.png");
 }
 
+.image-container {
+    position: relative;
+    z-index: 1;
+}
