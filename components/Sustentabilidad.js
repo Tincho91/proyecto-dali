@@ -17,13 +17,14 @@ const Sustentabilidad = () => {
         position={"relative"}
       >
         <Box
-          w={"95%"}
+          w={"100%"}
           maxW={"1200px"}
           mx={"auto"}
           display="grid"
           gridTemplateColumns={"3fr 1fr"}
           gap={1}
-          h={"100%"}
+          overflow="hidden"
+          p={5}
         >
           <Flex textAlign={"left"} direction={"column"} w={"100%"}>
             <Text
