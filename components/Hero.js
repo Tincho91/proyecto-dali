@@ -9,7 +9,6 @@ import {
   Text,
   useMediaQuery
 } from "@chakra-ui/react";
-import { useSpring } from "react-spring";
 import RotatingImage from "./utils/RotatingImage";
 
 import "slick-carousel/slick/slick.css";
@@ -62,7 +61,7 @@ const Hero = () => {
   const rotatingImageSrc = "/images/ReCircle.png";
 
   const settings = {
-    dots: true,
+    dots: false,
     arrows: false,
     infinite: true,
     speed: 500,
@@ -93,7 +92,7 @@ const Hero = () => {
               <Box 
                 position="relative" 
                 minH={isLandscape ? "60vh" : "40vh"}
-                h={{ base: "40vh", md: "auto" }}
+                h="40vh"
                 key={index}
               >
                 <Image

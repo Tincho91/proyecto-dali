@@ -29,8 +29,6 @@ const Carousel = ({ images }) => {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          autoplay: true,
-          autoplaySpeed: 4000,
           centerPadding: "20%",
         },
       },
@@ -38,8 +36,6 @@ const Carousel = ({ images }) => {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          autoplay: true,
-          autoplaySpeed: 4000,
           centerPadding: "30%",
         },
       },
@@ -47,8 +43,6 @@ const Carousel = ({ images }) => {
         breakpoint: 992,
         settings: {
           slidesToShow: 1,
-          autoplay: true,
-          autoplaySpeed: 4000,
           centerPadding: "32%",
         },
       },
@@ -56,8 +50,6 @@ const Carousel = ({ images }) => {
         breakpoint: 1200,
         settings: {
           slidesToShow: 1,
-          autoplay: true,
-          autoplaySpeed: 4000,
           centerPadding: "33%",
         },
       },
@@ -65,8 +57,6 @@ const Carousel = ({ images }) => {
         breakpoint: 1536,
         settings: {
           slidesToShow: 1,
-          autoplay: true,
-          autoplaySpeed: 4000,
           centerPadding: "35%",
         },
       },
@@ -120,8 +110,8 @@ const Carousel = ({ images }) => {
               base: "25px",
               sm: isLandscape ? "8vh" : "6vw",
               md: isLandscape ? "8vh" : "4vw",
-              lg: isLandscape ? "50px" : "60px",
-              xl: isLandscape ? "50px" : "60px",
+              lg: isLandscape ? "50px" : "30px",
+              xl: isLandscape ? "50px" : "50px",
             }}
             fontWeight={"600"}
             color={"white"}

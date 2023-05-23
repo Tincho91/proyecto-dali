@@ -4,12 +4,12 @@ import { Flex } from "@chakra-ui/react";
 const TercerSeparador = () => {
   return (
     <Flex
-      height="15vh"
+      height= "15vh"
       minW={"100vw"}
       alignItems="center"
       justifyContent="center"
       top={0}
-      background={"transparent"}
+      background={"gray.100"}
     >
       <Flex
         flex="1"
