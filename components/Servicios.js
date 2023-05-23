@@ -87,7 +87,7 @@ const Servicios = () => {
             </Text>
           </Flex>
           <Box
-            minH={{ base: "50vw", md: "60vh"}}
+            minH="60vh"
             maxH={'100%'}
             className="box2"
             width={{ base: "100%", md: "100%" }}

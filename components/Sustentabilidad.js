@@ -95,7 +95,7 @@ const Sustentabilidad = () => {
             bgImage="/images/servicios5.png"
             bgPosition="center"
             bgRepeat="no-repeat"
-            bgSize="fill"
+            bgSize="cover"
             transition="background-image 0.3s"
             order={{ base: 2, md: 1 }}
           />
