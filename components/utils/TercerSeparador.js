@@ -16,6 +16,7 @@ const TercerSeparador = () => {
     >
       <Flex
         flex="1"
+        display={{base: isLandscape ? "block" : "none", md: "block"}}
         background="gray.100"
         height="100%"
         transform="skewY(6deg)"
@@ -27,11 +28,10 @@ const TercerSeparador = () => {
       ></Flex>
       <Flex
         flex="1"
-        display={{base: isLandscape ? "block" : "none", md: "block"}}
+        maxWidth={{base: isLandscape ? "50vw" : "100vw", md: "50vw"}}
         background="gray.100"
         height="100%"
         transform="skewY(-6deg)"
-        maxWidth={"50vw"}
         alignItems="center"
         justifyContent="center"
         position="relative"

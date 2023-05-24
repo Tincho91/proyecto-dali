@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { Box, Image, Text, Flex, Grid, useMediaQuery } from "@chakra-ui/react";
 import TercerSeparador from "./utils/TercerSeparador";
@@ -7,8 +7,9 @@ const Sustentabilidad = () => {
   const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
 
   return (
-    <Box w={"100vw"}>
-      <Flex
+    <Box w={"100vw"} className="hola">
+      <Box
+        className="yo estoy"
         pt={isLandscape ? "1" : "3"}
         h={{
           base: isLandscape ? "200px" : "350px",
@@ -21,29 +22,71 @@ const Sustentabilidad = () => {
         bg="gray.100"
         position={"relative"}
       >
-        <Box
-          w={"100%"}
-          maxW={"1200px"}
-          mx={"auto"}
-          display="grid"
-          gridTemplateColumns={"3fr 1fr"}
-          gap={1}
-          p={isLandscape ? "5" : "3"}
-        >
-          <Flex textAlign={"left"} direction={"column"} w={"100%"}>
+        <Grid w="100%" maxW="1200px" templateColumns={"1fr 3fr"} gap={0} mx="auto">
+          <Box
+            className="image-container"
+            position={"absolute"}
+            gridColumn="1"
+          >
+            <Image
+              src="/images/ReCicleWhite.png"
+              alt="Reciclaje"
+              transform={{
+                base: isLandscape
+                  ? "translateX(-60%) translateY(-20%)"
+                  : "translateX(-70%) translateY(-20%)",
+                md: isLandscape
+                  ? "translateX(-60%) translateY(-17%)"
+                  : "translateX(-70%) translateY(-20%)",
+                lg: isLandscape
+                  ? "translateX(-60%) translateY(-15%)"
+                  : "translateX(-70%) translateY(-20%)",
+              }}
+              h={{
+                base: isLandscape ? "500px" : "600px",
+                md: isLandscape ? "650px" : "650px",
+                lg: isLandscape ? "700px" : "750",
+                xl: isLandscape ? "700px" : "850",
+              }}
+              w={{
+                base: isLandscape ? "500px" : "600px",
+                md: isLandscape ? "650px" : "650px",
+                lg: isLandscape ? "700px" : "750",
+                xl: isLandscape ? "700px" : "850",
+              }}
+            />
+          </Box>
+          <Flex
+            flexDir="column"
+            w="100%"
+            pr={{base:"5%", xl: "0"}}
+            textAlign="right"
+            gridColumn="2"
+          >
             <Text
               color={"white"}
               pb={10}
               letterSpacing={5}
               fontWeight={800}
-              fontSize={{ base: "6.5vw", md: "4.5vw", lg: "50px" }}
+              fontSize={{
+                base: "5vw",
+                md: "4.5vw",
+                lg: "50px" 
+              }}
             >
               SUSTENTABILIDAD
             </Text>
             <Text
               color={"white"}
               pb={10}
-              fontSize={{ base: "15px", md: "2.3vw", lg: "20px" }}
+              fontSize={{ 
+                base: "14.5px",
+                sm: "2.7vw",
+                md: "2.35vw", 
+                lg: "2.6vw",
+                xl: "30px"
+              }}
+              pl={"5%"}
             >
               Apostamos a la economía circular como modelo productivo para el
               cuidado del medio ambiente, y también como una manera de mejorar
@@ -51,39 +94,21 @@ const Sustentabilidad = () => {
             </Text>
             <Text
               color={"white"}
-              fontSize={{ base: "15px", md: "2.3vw", lg: "20px" }}
+              fontSize={{ 
+                base: "14.5px",
+                sm: "2.7vw",
+                md: "2.35vw", 
+                lg: "2.6vw",
+                xl: "30px"
+              }}
+              pl={"5%"}
             >
               Entendemos que el desarrollo sustentable requiere el consumo
               responsable de plásticos, su separación y su reciclado.
             </Text>
           </Flex>
-          <Box
-            className="image-container"
-            overflow={"hidden"}
-            transform={{
-              base: isLandscape ? `translateX(50%) translateY(-20%)` : `translateX(-160%) translateY(-20%)`,
-            }}
-            h={{
-              base: isLandscape ? "200px" : "500px",
-              sm: isLandscape ? "350px" : "50vh",
-              md: isLandscape ? "450px" : "50vh",
-            }}
-            w={{
-              base: isLandscape ? "200px" : "500px",
-              sm: isLandscape ? "350px" : "50vh",
-              md: isLandscape ? "450px" : "50vh",
-            }}
-            
-          >
-            <Image
-              src="/images/ReCicleWhite.png"
-              alt="Reciclaje"
-              height="100%"
-              width="100%"
-            />
-          </Box>
-        </Box>
-      </Flex>
+        </Grid>
+      </Box>
       <Box position="relative" transform="translateY(-15vh)" zIndex={3}>
         <TercerSeparador />
       </Box>
