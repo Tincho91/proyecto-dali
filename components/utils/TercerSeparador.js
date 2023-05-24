@@ -1,7 +1,10 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
+import { Flex, useMediaQuery } from "@chakra-ui/react";
+
 
 const TercerSeparador = () => {
+  const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
+
   return (
     <Flex
       height= "15vh"
@@ -16,7 +19,7 @@ const TercerSeparador = () => {
         background="gray.100"
         height="100%"
         transform="skewY(6deg)"
-        maxWidth={{base:"100vw", md: "50vw"}}
+        maxWidth={{base: isLandscape ? "50vw" : "100vw", md: "50vw"}}
         alignItems="center"
         justifyContent="center"
         position="relative"
@@ -24,7 +27,7 @@ const TercerSeparador = () => {
       ></Flex>
       <Flex
         flex="1"
-        display={{base: "none", md: "block"}}
+        display={{base: isLandscape ? "block" : "none", md: "block"}}
         background="gray.100"
         height="100%"
         transform="skewY(-6deg)"

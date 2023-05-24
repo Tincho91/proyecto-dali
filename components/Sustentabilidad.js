@@ -7,7 +7,7 @@ const Sustentabilidad = () => {
   const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
 
   return (
-    <Box>
+    <Box w={"100vw"}>
       <Flex
         pt={isLandscape ? "1" : "3"}
         h={{
@@ -28,7 +28,6 @@ const Sustentabilidad = () => {
           display="grid"
           gridTemplateColumns={"3fr 1fr"}
           gap={1}
-          overflow="hidden"
           p={isLandscape ? "5" : "3"}
         >
           <Flex textAlign={"left"} direction={"column"} w={"100%"}>
@@ -60,10 +59,23 @@ const Sustentabilidad = () => {
           </Flex>
           <Box
             className="image-container"
-            overflow="hidden"
-            transform={{ base: `translateX(00%) translateY(-20%)` }}
-            height="75vh"
-            width="75vh"
+
+            overflow={"hidden"}
+            transform={{
+              base: isLandscape ? `translateX(50%) translateY(-20%)` : `translateX(00%) translateY(-20%)`,
+
+            }}
+            h={{
+              base: isLandscape ? "200px" : "500px",
+              sm: isLandscape ? "350px" : "50vh",
+              md: isLandscape ? "450px" : "50vh",
+            }}
+            w={{
+              base: isLandscape ? "200px" : "500px",
+              sm: isLandscape ? "350px" : "50vh",
+              md: isLandscape ? "450px" : "50vh",
+            }}
+            
           >
             <Image
               src="/images/ReCicleWhite.png"
@@ -104,7 +116,7 @@ const Sustentabilidad = () => {
             alignItems="center"
             justifyContent="center"
             padding={"10%"}
-            paddingTop={{base: "20%", md: "25%"}}
+            paddingTop={{ base: "20%", md: "25%" }}
             maxH="70vh"
             order={{ base: 1, md: 2 }}
           >
@@ -113,7 +125,7 @@ const Sustentabilidad = () => {
               fontSize={{
                 base: isLandscape ? "14" : "",
                 md: isLandscape ? "3vh" : "3.5vw",
-                lg: isLandscape ? "3vh" : "30px"
+                lg: isLandscape ? "3vh" : "30px",
               }}
               lineHeight={"1.4em"}
               textAlign={"center"}
