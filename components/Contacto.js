@@ -1,36 +1,144 @@
-'use client'
-
-import React from "react";
-import { Box, Button, Grid, Input, Text, Textarea, useColorModeValue, useMediaQuery } from "@chakra-ui/react";
-
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  Grid,
+  Input,
+  Text,
+  Textarea,
+  useColorModeValue,
+  useMediaQuery,
+  Alert,
+  AlertIcon,
+} from "@chakra-ui/react";
 
 const Contacto = () => {
-  const gradient = useColorModeValue("linear(to-b, primary.400, white)", "linear(to-b, primary.400, white)");
-  const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
+  const gradient = useColorModeValue(
+    "linear(to-b, primary.400, white)",
+    "linear(to-b, primary.400, white)"
+  );
+  const [isLandscape] = useMediaQuery("(orientation: landscape)");
+  const [mathProblem, setMathProblem] = useState(generateMathProblem());
+  const [userAnswer, setUserAnswer] = useState("");
+  const [formError, setFormError] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
+  const [message, setMessage] = useState("");
+
+  function generateMathProblem() {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    const operator = Math.random() < 0.5 ? "+" : "-";
+    const solution = operator === "+" ? num1 + num2 : num1 - num2;
+    return `${num1} ${operator} ${num2} = `;
+  }
+
+  const evaluateMathProblem = (mathProblem) => {
+    const parts = mathProblem.split(" ");
+    const num1 = parseInt(parts[0]);
+    const operator = parts[1];
+    const num2 = parseInt(parts[2]);
+
+    if (operator === "+") {
+      return num1 + num2;
+    } else if (operator === "-") {
+      return num1 - num2;
+    } else {
+      return NaN;
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const expectedAnswer = evaluateMathProblem(mathProblem);
+    if (parseInt(userAnswer) !== expectedAnswer) {
+      setFormError("La respuesta no es correcta.");
+      return;
+    }
+
+    setShowMessage(true);
+    setMessage(
+      "Gracias por contactarnos. Nos comunicaremos con usted lo antes posible."
+    );
+
+    setMathProblem(generateMathProblem());
+    setUserAnswer("");
+    setFormError("");
+  };
 
   return (
-    <Box id="contacto" bgGradient={gradient} p={8} transform={isLandscape ? "translateY(-12vh)" : "translateY(-10vh)"}>
+    <Box
+      id="contacto"
+      bgGradient={gradient}
+      p={8}
+      transform={isLandscape ? "translateY(-12vh)" : "translateY(-10vh)"}
+    >
       <Box w={"100%"} maxW={"1200px"} mx={"auto"}>
         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={6}>
           <Box>
-            <Text 
-              fontSize={{base: "30px", md: "3.2vw", lg: "50px"}} 
-              mb={5} 
-              color={"white"} 
-              fontWeight={"700"} 
+            <Text
+              fontSize={{ base: "30px", md: "3.2vw", lg: "50px" }}
+              mb={5}
+              color={"white"}
+              fontWeight={"700"}
               letterSpacing={"8px"}
             >
               CONTACTO
             </Text>
-            <Grid templateColumns="repeat(2, 1fr)" gap={3}>
-              <Input placeholder="Nombre" bg={"white"}/>
-              <Input placeholder="Apellido" bg={"white"}/>
-              <Input placeholder="Teléfono" bg={"white"}/>
-              <Input placeholder="Empresa" bg={"white"}/>
-            </Grid>
-            <Input placeholder="Email" my={3} bg={"white"}/>
-            <Textarea placeholder="Mensaje" height="150px" mb={3} bg={"white"} resize={"none"}/>
-            <Button bg={"primary.400"} color={"white"}>Enviar</Button>
+            <Box>
+              <Grid templateColumns="repeat(2, 1fr)" gap={3}>
+                <Input placeholder="Nombre" bg={"white"} />
+                <Input placeholder="Apellido" bg={"white"} />
+                <Input placeholder="Teléfono" bg={"white"} />
+                <Input placeholder="Empresa" bg={"white"} />
+              </Grid>
+              <Input placeholder="Email" my={3} bg={"white"} />
+              <Textarea
+                placeholder="Mensaje"
+                height="150px"
+                mb={3}
+                bg={"white"}
+                resize={"none"}
+              />
+
+              <Grid
+                templateColumns="1fr 1fr 1fr 1fr"
+                gap={2}
+                alignItems="center"
+                mb={3}
+              >
+                <Text color="black" fontWeight="bold">
+                  {mathProblem}
+                </Text>
+                <Input
+                  type="number"
+                  placeholder="Respuesta"
+                  bg="white"
+                  value={userAnswer}
+                  onChange={(e) => setUserAnswer(e.target.value)}
+                />
+                <Button
+                  bg={"primary.400"}
+                  color={"white"}
+                  onClick={handleSubmit}
+                  isDisabled={formError}
+                >
+                  Enviar
+                </Button>
+              </Grid>
+              {formError && (
+                <Alert status="error" mb={3}>
+                  <AlertIcon />
+                  {formError}
+                </Alert>
+              )}
+              {showMessage && (
+                <Alert status="success" mb={3}>
+                  <AlertIcon />
+                  {message}
+                </Alert>
+              )}
+            </Box>
           </Box>
           <Box
             as="iframe"
