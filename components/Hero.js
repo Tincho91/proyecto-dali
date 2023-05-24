@@ -36,7 +36,7 @@ const Hero = () => {
         base: isLandscape ? "2.5vw" : "4vw",
         md: isLandscape ? "2.5vw" : "3vw",
         lg: isLandscape ? "2.5vw" : "2.5vw",
-        xl: isLandscape ? "2.5vw" : "35px",
+        xl: isLandscape ? "35px" : "35px",
       },
     },
     {
@@ -59,7 +59,7 @@ const Hero = () => {
         base: isLandscape ? "2.5vw" : "4vw",
         md: isLandscape ? "2.5vw" : "3vw",
         lg: isLandscape ? "2.5vw" : "2.5vw",
-        xl: isLandscape ? "2.5vw" : "35px",
+        xl: isLandscape ? "35px" : "35px",
       },
     },
   ];
