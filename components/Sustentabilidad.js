@@ -59,7 +59,6 @@ const Sustentabilidad = () => {
           </Flex>
           <Box
             className="image-container"
-
             overflow={"hidden"}
             transform={{
               base: isLandscape ? `translateX(50%) translateY(-20%)` : `translateX(00%) translateY(-20%)`,
