@@ -69,7 +69,7 @@ const Productos = () => {
   const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
 
   return (
-    <Box mt={"13vh"} bg="primary.400" position={"relative"}>
+    <Box mt={"13vh"} bg="primary.400" position={"relative"} id="productos">
       <Box transform={isLandscape ? "translateY(-6vh)" : "translateY(-20px)"}>
         <PrimerSeparator />
       </Box>

@@ -1,10 +1,9 @@
-'use client'
-
+import React from 'react';
 import {
   Box,
   Flex,
   Spacer,
-  Link,
+  Link as ChakraLink,
   Image,
   IconButton,
   Collapse,
@@ -12,6 +11,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { useWindowScroll } from "react-use";
 
 const Navbar = () => {
@@ -21,6 +21,13 @@ const Navbar = () => {
   const showNavbar = scrollY > 100;
   const isMobileNav = useBreakpointValue({ base: true, md: false });
   const transitionDuration = "0.3s";
+
+  const handleScrollToTop = () => {
+    scroll.scrollToTop({
+      smooth: true,
+      duration: 500, // Adjust the duration as desired
+    });
+  };
 
   return (
     <Box
@@ -47,6 +54,8 @@ const Navbar = () => {
             src="/images/dali-logo.png"
             alt="Dali Logo"
             maxH="5em"
+            cursor="pointer"
+            onClick={handleScrollToTop} // Scroll to top when logo is clicked
           />
         )}
         <Spacer />
@@ -60,36 +69,128 @@ const Navbar = () => {
           />
         ) : (
           <>
-            <Link href="#" mx={2} fontWeight={700} color={"black"}>
+            <ChakraLink
+              as={ScrollLink}
+              to="productos"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100} // Adjust the offset as needed
+              activeClass="active"
+              mx={2}
+              fontWeight={700}
+              color={"black"}
+            >
               PRODUCTOS
-            </Link>
-            <Link href="#" mx={2} fontWeight={700} color={"black"}>
+            </ChakraLink>
+            <ChakraLink
+              as={ScrollLink}
+              to="servicios"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100} // Adjust the offset as needed
+              activeClass="active"
+              mx={2}
+              fontWeight={700}
+              color={"black"}
+            >
               SERVICIOS
-            </Link>
-            <Link href="#" mx={2} fontWeight={700} color={"black"}>
+            </ChakraLink>
+            <ChakraLink
+              as={ScrollLink}
+              to="sustentabilidad"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100} // Adjust the offset as needed
+              activeClass="active"
+              mx={2}
+              fontWeight={700}
+              color={"black"}
+            >
               SUSTENTABILIDAD
-            </Link>
-            <Link href="#" mx={2} fontWeight={700} color={"black"}>
+            </ChakraLink>
+            <ChakraLink
+              as={ScrollLink}
+              to="contacto"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100} // Adjust the offset as needed
+              activeClass="active"
+              mx={2}
+              fontWeight={700}
+              color={"black"}
+            >
               CONTACTO
-            </Link>
+            </ChakraLink>
           </>
         )}
       </Flex>
       {isMobileNav && (
         <Collapse in={isOpen} animateOpacity>
           <Flex direction="column" mt={4}>
-            <Link href="#" py={2} fontWeight={700} color={"black"}>
+            <ChakraLink
+              as={ScrollLink}
+              to="productos"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100} // Adjust the offset as needed
+              activeClass="active"
+              mx={2}
+              fontWeight={700}
+              color={"black"}
+              onClick={onToggle} // Close the mobile menu after clicking a link
+            >
               PRODUCTOS
-            </Link>
-            <Link href="#" py={2} fontWeight={700} color={"black"}>
+            </ChakraLink>
+            <ChakraLink
+              as={ScrollLink}
+              to="servicios"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100} // Adjust the offset as needed
+              activeClass="active"
+              mx={2}
+              fontWeight={700}
+              color={"black"}
+              onClick={onToggle} // Close the mobile menu after clicking a link
+            >
               SERVICIOS
-            </Link>
-            <Link href="#" py={2} fontWeight={700} color={"black"}>
+            </ChakraLink>
+            <ChakraLink
+              as={ScrollLink}
+              to="sustentabilidad"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100} // Adjust the offset as needed
+              activeClass="active"
+              mx={2}
+              fontWeight={700}
+              color={"black"}
+              onClick={onToggle} // Close the mobile menu after clicking a link
+            >
               SUSTENTABILIDAD
-            </Link>
-            <Link href="#" py={2} fontWeight={700} color={"black"}>
+            </ChakraLink>
+            <ChakraLink
+              as={ScrollLink}
+              to="contacto"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100} // Adjust the offset as needed
+              activeClass="active"
+              mx={2}
+              fontWeight={700}
+              color={"black"}
+              onClick={onToggle} // Close the mobile menu after clicking a link
+            >
               CONTACTO
-            </Link>
+            </ChakraLink>
           </Flex>
         </Collapse>
       )}

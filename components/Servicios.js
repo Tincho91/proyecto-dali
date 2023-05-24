@@ -6,7 +6,7 @@ const Servicios = () => {
   const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
 
   return (
-    <Box pt={ isLandscape ? "5" : ""}>
+    <Box pt={"5"} id="servicios">
       <Box width={"100%"} maxW={"1200px"} mx={"auto"}>
         <Grid
           templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
@@ -38,6 +38,7 @@ const Servicios = () => {
               lineHeight={"1.2em"}
               textAlign={"center"}
               fontWeight={900}
+              pb={5}
             >
               COMPRA Y VENTA DE SCRAP
             </Text>
@@ -68,6 +69,7 @@ const Servicios = () => {
               lineHeight={"1.2em"}
               textAlign={"center"}
               fontWeight={900}
+              pb={5}
             >
               RECUPERACIÓN A FASÓN
             </Text>

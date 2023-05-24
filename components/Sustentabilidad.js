@@ -7,9 +7,8 @@ const Sustentabilidad = () => {
   const [isLandscape] = useMediaQuery("(orientation: landscape)"); // Detecta la orientación del dispositivo
 
   return (
-    <Box w={"100vw"} className="hola">
+    <Box w={"100vw"} id="sustentabilidad">
       <Box
-        className="yo estoy"
         pt={isLandscape ? "1" : "3"}
         h={{
           base: isLandscape ? "200px" : "350px",
@@ -145,10 +144,12 @@ const Sustentabilidad = () => {
           >
             <Text
               color={"gray.500"}
-              fontSize={{
-                base: isLandscape ? "14" : "",
-                md: isLandscape ? "3vh" : "3.5vw",
-                lg: isLandscape ? "3vh" : "30px",
+              fontSize={{ 
+                base: "14.5px",
+                sm: "2.7vw",
+                md: "2.35vw", 
+                lg: "2.6vw",
+                xl: "30px"
               }}
               lineHeight={"1.4em"}
               textAlign={"center"}
