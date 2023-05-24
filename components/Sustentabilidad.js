@@ -61,8 +61,7 @@ const Sustentabilidad = () => {
             className="image-container"
             overflow={"hidden"}
             transform={{
-              base: isLandscape ? `translateX(50%) translateY(-20%)` : `translateX(00%) translateY(-20%)`,
-
+              base: isLandscape ? `translateX(50%) translateY(-20%)` : `translateX(-160%) translateY(-20%)`,
             }}
             h={{
               base: isLandscape ? "200px" : "500px",
