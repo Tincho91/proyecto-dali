@@ -47,3 +47,41 @@ body {
 .image-container {
     z-index: 1;
 }
+
+.custom-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .custom-dots li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  
+  .custom-dots li button {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-dots li button::before {
+    display: none;
+  }
+  
+  .custom-dots li button.active-dot {
+    background-color: #489F82;
+    width: 15px;
+    height: 15px;
+  }

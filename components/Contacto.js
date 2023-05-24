@@ -1,6 +1,4 @@
-'use client'
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -20,63 +18,76 @@ const Contacto = () => {
     "linear(to-b, primary.400, white)"
   );
   const [isLandscape] = useMediaQuery("(orientation: landscape)");
-  const [mathProblem, setMathProblem] = useState(generateMathProblem());
-  const [userAnswer, setUserAnswer] = useState("");
+  const [formData, setFormData] = useState({
+    nombre: "",
+    apellido: "",
+    telefono: "",
+    empresa: "",
+    email: "",
+    mensaje: "",
+  });
   const [formError, setFormError] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function generateMathProblem() {
-    const num1 = Math.floor(Math.random() * 10) + 1;
-    const num2 = Math.floor(Math.random() * 10) + 1;
-    const operator = Math.random() < 0.5 ? "+" : "-";
-    const solution = operator === "+" ? num1 + num2 : num1 - num2;
-    return `${num1} ${operator} ${num2} = `;
-  }
-
-  const evaluateMathProblem = (mathProblem) => {
-    const parts = mathProblem.split(" ");
-    const num1 = parseInt(parts[0]);
-    const operator = parts[1];
-    const num2 = parseInt(parts[2]);
-
-    if (operator === "+") {
-      return num1 + num2;
-    } else if (operator === "-") {
-      return num1 - num2;
-    } else {
-      return NaN;
-    }
+  const handleInputChange = (e) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const expectedAnswer = evaluateMathProblem(mathProblem);
-    if (parseInt(userAnswer) !== expectedAnswer) {
-      setFormError("La respuesta no es correcta.");
+  
+    // Perform form validation
+    if (!formData.nombre) {
+      setFormError("Ingrese su nombre.");
       return;
     }
-
-    setShowMessage(true);
-    setMessage(
-      "Gracias por contactarnos. Nos comunicaremos con usted lo antes posible."
-    );
-
-    setMathProblem(generateMathProblem());
-    setUserAnswer("");
-    setFormError("");
-  };
-
-  useEffect(() => {
-    if (showMessage) {
-      const timer = setTimeout(() => {
-        setShowMessage(false);
-      }, 5000);
-
-      return () => clearTimeout(timer);
+  
+    if (!formData.apellido) {
+      setFormError("Ingrese su apellido.");
+      return;
     }
-  }, [showMessage]);
+  
+    if (!formData.telefono || isNaN(formData.telefono)) {
+      setFormError("Ingrese un número de teléfono válido.");
+      return;
+    }
+  
+    if (!formData.email || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(formData.email)) {
+      setFormError("Ingrese un email válido.");
+      return;
+    }
+  
+    if (!formData.mensaje) {
+      setFormError("Ingrese un mensaje.");
+      return;
+    }
+  
+    // Form submission logic
+    setIsSubmitting(true);
+    setFormError("");
+  
+    setTimeout(() => {
+      setShowMessage(true);
+      setMessage(
+        "Gracias por contactarnos. Nos comunicaremos con usted lo antes posible."
+      );
+  
+      setIsSubmitting(false);
+      setFormData({
+        nombre: "",
+        apellido: "",
+        telefono: "",
+        empresa: "",
+        email: "",
+        mensaje: "",
+      });
+    }, 100); // Simulate delay for the message to be sent
+  };
 
   return (
     <Box
@@ -99,45 +110,62 @@ const Contacto = () => {
             </Text>
             <Box>
               <Grid templateColumns="repeat(2, 1fr)" gap={3}>
-                <Input placeholder="Nombre" bg={"white"} />
-                <Input placeholder="Apellido" bg={"white"} />
-                <Input placeholder="Teléfono" bg={"white"} />
-                <Input placeholder="Empresa" bg={"white"} />
+                <Input
+                  placeholder="Nombre"
+                  bg={"white"}
+                  name="nombre"
+                  value={formData.nombre}
+                  onChange={handleInputChange}
+                />
+                <Input
+                  placeholder="Apellido"
+                  bg={"white"}
+                  name="apellido"
+                  value={formData.apellido}
+                  onChange={handleInputChange}
+                />
+                <Input
+                  placeholder="Teléfono"
+                  bg={"white"}
+                  name="telefono"
+                  value={formData.telefono}
+                  onChange={handleInputChange}
+                />
+                <Input
+                  placeholder="Empresa"
+                  bg={"white"}
+                  name="empresa"
+                  value={formData.empresa}
+                  onChange={handleInputChange}
+                />
               </Grid>
-              <Input placeholder="Email" my={3} bg={"white"} />
+              <Input
+                placeholder="Email"
+                my={3}
+                bg={"white"}
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+              />
               <Textarea
                 placeholder="Mensaje"
                 height="150px"
                 mb={3}
                 bg={"white"}
                 resize={"none"}
+                name="mensaje"
+                value={formData.mensaje}
+                onChange={handleInputChange}
               />
 
-              <Grid
-                templateColumns="1fr 1fr 1fr 1fr"
-                gap={2}
-                alignItems="center"
-                mb={3}
+              <Button
+                bg={"primary.400"}
+                color={"white"}
+                onClick={handleSubmit}
               >
-                <Text color="black" fontWeight="bold">
-                  {mathProblem}
-                </Text>
-                <Input
-                  type="number"
-                  placeholder="Respuesta"
-                  bg="white"
-                  value={userAnswer}
-                  onChange={(e) => setUserAnswer(e.target.value)}
-                />
-                <Button
-                  bg={"primary.400"}
-                  color={"white"}
-                  onClick={handleSubmit}
-                  isDisabled={formError}
-                >
-                  Enviar
-                </Button>
-              </Grid>
+                {isSubmitting ? "Enviando..." : "Enviar"}
+              </Button>
+
               {formError && (
                 <Alert status="error" mb={3}>
                   <AlertIcon />
@@ -161,7 +189,7 @@ const Contacto = () => {
             shadow={"lg"}
             borderRadius={"lg"}
             justifySelf={{ lg: "end" }}
-            allowfullscreen=""
+            allowFullScreen=""
             loading="lazy"
           ></Box>
         </Grid>

@@ -14,7 +14,7 @@ const Servicios = () => {
         >
           <Box
             className="box1"
-            minH="60vh"
+            minH="405px"
             maxH={'100%'}
             width={"100%"}
             bgImage="/images/servicios1.png"
@@ -29,6 +29,7 @@ const Servicios = () => {
             alignItems="center"
             justifyContent="center"
             padding={"15%"}
+            minH="405px"
             maxH="70vh"
             order={{ base: 1, md: 2 }}
           >
@@ -60,6 +61,7 @@ const Servicios = () => {
             alignItems="center"
             justifyContent="center"
             padding={"15%"}
+            minH="405px"
             maxH="70vh"
             order={3}
           >
@@ -89,7 +91,7 @@ const Servicios = () => {
             </Text>
           </Flex>
           <Box
-            minH="60vh"
+            minH="405px"
             maxH={'100%'}
             className="box2"
             width={{ base: "100%", md: "100%" }}

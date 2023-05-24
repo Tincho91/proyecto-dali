@@ -122,9 +122,7 @@ const Sustentabilidad = () => {
         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
           <Box
             className="box3"
-            minH={{
-              base: isLandscape ? "80vh" : "60vh",
-            }}
+            minH={ isLandscape ? "80vh" : "405px"}
             width={"100%"}
             bgImage="/images/servicios5.png"
             bgPosition="center"
@@ -139,18 +137,13 @@ const Sustentabilidad = () => {
             justifyContent="center"
             padding={"10%"}
             paddingTop={{ base: "20%", md: "25%" }}
+            minH="405px"
             maxH="70vh"
             order={{ base: 1, md: 2 }}
           >
             <Text
               color={"gray.500"}
-              fontSize={{ 
-                base: "14.5px",
-                sm: "2.7vw",
-                md: "2.35vw", 
-                lg: "2.6vw",
-                xl: "30px"
-              }}
+              fontSize={{base:"14px", md: "2.5vh", lg: "22px"}}
               lineHeight={"1.4em"}
               textAlign={"center"}
               fontWeight={500}

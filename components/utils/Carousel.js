@@ -1,8 +1,7 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import {
-  Box,
   Image,
   Text,
   VStack,
@@ -16,6 +15,7 @@ import "slick-carousel/slick/slick-theme.css";
 const Carousel = ({ images }) => {
   const [current, setCurrent] = useState(0);
   const [isLandscape] = useMediaQuery("(orientation: landscape)");
+  const sliderRef = useRef(null);
 
   const settings = {
     arrows: false,
@@ -61,30 +61,34 @@ const Carousel = ({ images }) => {
         },
       },
     ],
+    autoplay: true,
+    autoplaySpeed: 4000,
+  };
+
+  const handleSlideClick = (index) => {
+    setCurrent(index); // Update the current slide index
+    sliderRef.current.slickGoTo(index); // Move the slider to the clicked slide
   };
 
   return (
     <Flex direction="column">
-      <Slider {...settings}>
+      <Slider ref={sliderRef} {...settings}>
         {images.map((image, index) => (
           <Flex
             key={index}
             className={index === current ? "slide activeSlide" : "slide"}
             justifyContent="center"
             alignItems="center"
+            onClick={() => handleSlideClick(index)} // Add onClick handler
           >
             <Image
               src={image.src}
               alt={image.alt}
               boxSize={{
-                base: isLandscape ? "90px" : "180px",
-                sm: isLandscape ? "180px" : "360px",
-                md: isLandscape ? "150px" : "360px",
-                lg: isLandscape ? "125px" : "360px",
-                xl: isLandscape ? "175px" : "570px",
+                // ...existing boxSize values...
               }}
-              minW={{ base: "200px", md: "300px", lg: "400px" }} // Added minimum width here
-              minH={{ base: "200px", md: "300px", lg: "400px" }} // Added minimum height here
+              minW={{ base: "200px", md: "300px", lg: "400px" }}
+              minH={{ base: "200px", md: "300px", lg: "400px" }}
               objectFit="contain"
               mx={"auto"}
             />
@@ -107,11 +111,7 @@ const Carousel = ({ images }) => {
         >
           <Text
             fontSize={{
-              base: "25px",
-              sm: isLandscape ? "8vh" : "6vw",
-              md: isLandscape ? "8vh" : "4vw",
-              lg: isLandscape ? "50px" : "30px",
-              xl: isLandscape ? "50px" : "50px",
+              // ...existing fontSize values...
             }}
             fontWeight={"600"}
             color={"white"}
@@ -122,8 +122,7 @@ const Carousel = ({ images }) => {
           <Text
             color={"white"}
             fontSize={{
-              base: "md",
-              md: "lg",
+              // ...existing fontSize values...
             }}
           >
             {images[current]?.text}
