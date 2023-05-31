@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import React, { useState, useRef } from "react";
 import Slider from "react-slick";
@@ -85,7 +85,7 @@ const Hero = () => {
 
       const handleDotClick = () => {
         // Use the slickGoToSlide method to change the slide
-        sliderRef.current.slickGoToSlide(index);
+        sliderRef.current.slickGoTo(index);
       };
 
       return (

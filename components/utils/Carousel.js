@@ -87,8 +87,8 @@ const Carousel = ({ images }) => {
               boxSize={{
                 // ...existing boxSize values...
               }}
-              minW={{ base: "200px", md: "300px", lg: "400px" }}
-              minH={{ base: "200px", md: "300px", lg: "400px" }}
+              w={{ base: "160px", md: "220px", lg: "330px" }}
+              h={{ base: "160px", md: "220px", lg: "330px" }}
               objectFit="contain"
               mx={"auto"}
             />
