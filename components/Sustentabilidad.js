@@ -44,14 +44,14 @@ const Sustentabilidad = () => {
               h={{
                 base: isLandscape ? "500px" : "600px",
                 md: isLandscape ? "650px" : "650px",
-                lg: isLandscape ? "700px" : "750",
-                xl: isLandscape ? "700px" : "850",
+                lg: isLandscape ? "700px" : "750px",
+                xl: isLandscape ? "700px" : "850px",
               }}
               w={{
                 base: isLandscape ? "500px" : "600px",
                 md: isLandscape ? "650px" : "650px",
-                lg: isLandscape ? "700px" : "750",
-                xl: isLandscape ? "700px" : "850",
+                lg: isLandscape ? "700px" : "750px",
+                xl: isLandscape ? "700px" : "850px",
               }}
             />
           </Box>
