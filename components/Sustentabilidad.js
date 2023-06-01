@@ -143,7 +143,7 @@ const Sustentabilidad = () => {
           >
             <Text
               color={"gray.500"}
-              fontSize={{base:"16px", md: "2.5vh", lg: "22px", xl: "30px"}}
+              fontSize={{base:"16px", md: "2.5vh", lg: "22px", xl: "27px"}}
               lineHeight={"1.4em"}
               textAlign={"center"}
               fontWeight={500}

@@ -17,8 +17,8 @@ const Footer = ({ footerRef }) => {
         </Flex>
         <Flex flexDirection="column" textAlign="center">
           <Text color={"primary.400"} fontWeight={"700"} fontSize={{base: "15px", md: "20px"}}>223 5999980 (Compras y Ventas)</Text>
-          <Text color={"primary.400"} fontWeight={"700"}>223 6005501 (Administración)</Text>
-          <Text color={"primary.400"} fontWeight={"700"}>dalitermoplasticos@gmail.com</Text>
+          <Text color={"primary.400"} fontWeight={"700"} fontSize={{base: "15px", md: "20px"}}>223 6005501 (Administración)</Text>
+          <Text color={"primary.400"} fontWeight={"700"} fontSize={{base: "15px", md: "20px"}}>dalitermoplasticos@gmail.com</Text>
         </Flex>
         <Box display={{base: "none", sm: "block"}} /> {/* This is a placeholder to keep the balance in the layout */}
       </Flex>

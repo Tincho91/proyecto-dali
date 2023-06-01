@@ -110,7 +110,7 @@ const Carousel = ({ images }) => {
           textAlign="center"
         >
           <Text
-            fontSize={{base: "6.5vw", md: "4.5vw", lg: "40px"}}
+            fontSize={{base: "6.2vw", md: "4.5vw", lg: "40px"}}
             fontWeight={"700"}
             color={"white"}
             pt={{ base: "20px", sm: "15px", md: "25px" }}
@@ -119,7 +119,7 @@ const Carousel = ({ images }) => {
           </Text>
           <Text
             color={"white"}
-            fontSize={{base:"15px", md: "2vh", lg: "20px"}}
+            fontSize={{base:"12px", sm: "15px", md: "2vh", lg: "20px"}}
           >
             {images[current]?.text}
           </Text>

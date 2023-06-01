@@ -13,8 +13,8 @@ const RotatingImage = ({ src, alt }) => {
   return (
     <Box
       as={animated.div}
-      w="100%"
-      h="100%"
+      w="80%"
+      h="80%"
       overflow="hidden"
       style={{ ...rotation, backgroundImage: `url(${src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     />

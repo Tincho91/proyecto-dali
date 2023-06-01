@@ -7,9 +7,12 @@ import {
   Image,
   useBreakpointValue,
   Text,
+  Flex,
+  Icon,
   useMediaQuery,
 } from "@chakra-ui/react";
 import RotatingImage from "./utils/RotatingImage";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -64,6 +67,32 @@ const Hero = () => {
     },
   ];
 
+  const quoteText = [
+    {
+      parts: [
+        { text: "Somos una empresa dedicada a la ", highlighted: false },
+        { text: "extrusión de termoplásticos", highlighted: true },
+        { text: " con más de 30 años de trayectoria en la ciudad de Mar del Plata.", highlighted: false },
+      ],
+    },
+    {
+      parts: [
+        { text: "Comercializamos ", highlighted: false },
+        { text: "productos reciclados", highlighted: true },
+        { text: " de excelente calidad y brindamos ", highlighted: false },
+        { text: "servicios de recuperación", highlighted: true },
+        { text: " de residuos plásticos industriales.", highlighted: false },
+      ],
+    },
+    {
+      parts: [
+        { text: "Quienes nos eligen tienen a la sustentabilidad como eje fundamental de la ", highlighted: false },
+        { text: "responsabilidad social", highlighted: true },
+        { text: " de sus empresas. A través del recupero, optimizan sus procesos productivos y costos.", highlighted: false },
+      ],
+    },
+  ];
+
   const rotatingImageSrc = "/images/ReCircle.png";
 
   const settings = {
@@ -100,7 +129,7 @@ const Hero = () => {
   };
 
   return (
-    <Box>
+    <Box position="relative">
       <Box
         mt={7}
         width={"95%"}
@@ -165,6 +194,87 @@ const Hero = () => {
         h="60vw"
       >
         <RotatingImage src={rotatingImageSrc} alt="Rotating" />
+      </Box>
+      <Box
+        className="quoteText"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        position={"relative"}
+        zIndex={"2"}
+        pt={10}
+        pb={10}
+        width={"95%"}
+        maxWidth={"1200px"}
+        mx={"auto"}
+      >
+        {quoteText.map((quote, quoteIndex) => {
+          // Define the text alignment depending on the index
+          let justifyContent;
+          if (quoteIndex === 0) justifyContent = "flex-end";
+          else if (quoteIndex === 1) justifyContent = "flex-end";
+          else if (quoteIndex === 2) justifyContent = "center";
+
+          let textAlign;
+          if (quoteIndex === 0 || quoteIndex === 1) textAlign = "right";
+          else if (quoteIndex === 2) textAlign = "left";
+
+          let maxWidth;
+          if (quoteIndex === 0) maxWidth = "40%";
+          else if (quoteIndex === 1) maxWidth = "70%";
+          else if (quoteIndex === 2) maxWidth = "80%";
+
+          return (
+            <Flex
+              direction="row"
+              alignItems="center"
+              justifyContent={justifyContent}
+              width={"100%"}
+              key={quoteIndex}
+              
+            >
+              {/* Add the opening quote icon to the first quote */}
+              {quoteIndex === 0 && (
+                <Icon
+                  as={FaQuoteLeft}
+                  boxSize="4em"
+                  alignSelf="flex-start" // Align to the top of the Flex
+                  color={"primary.400"}
+                />
+              )}
+
+              <Box flex={1} mx={4} maxWidth={maxWidth} mb={6}>
+                <Text textAlign={textAlign}>
+                  {quote.parts.map((part, partIndex) => (
+                    <Box
+                      as="span"
+                      fontWeight={part.highlighted ? "bold" : "normal"}
+                      color={part.highlighted ? "primary.400" : "gray.500"}
+                      fontSize={{
+                        base: part.highlighted ? "17px" : "16px",
+                        md: part.highlighted ? "2.3vw" : "2vw",
+                        lg: part.highlighted ? "2em" : "1.8em",
+                      }}
+                      key={partIndex}
+                    >
+                      {part.text}
+                    </Box>
+                  ))}
+                </Text>
+              </Box>
+
+              {/* Add the closing quote icon to the last quote */}
+              {quoteIndex === quoteText.length - 1 && (
+                <Icon
+                  as={FaQuoteRight}
+                  boxSize="4em"
+                  alignSelf="flex-end" // Align to the bottom of the Flex
+                  color={"primary.400"}
+                />
+              )}
+            </Flex>
+          );
+        })}
       </Box>
     </Box>
   );
