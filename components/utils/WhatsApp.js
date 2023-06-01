@@ -1,11 +1,11 @@
-import { Box, Link, useColorModeValue } from "@chakra-ui/react";
+import { Box, Link } from "@chakra-ui/react";
 import { FaWhatsapp } from "react-icons/fa";
 
-const Whatsapp = () => {
+const Whatsapp = ({ buttonPosition }) => {
   return (
     <Box
       as="a"
-      href="https://wa.me/1234567890" // Reemplace con su enlace de WhatsApp real
+      href="https://wa.me/2235999980"
       target="_blank"
       rel="noopener noreferrer"
       bg="#25D366"
@@ -13,7 +13,7 @@ const Whatsapp = () => {
       borderRadius="full"
       p={2}
       position="fixed"
-      bottom={8}
+      bottom={buttonPosition} // Usa el estado aquí
       right={8}
       display="flex"
       alignItems="center"

@@ -45,7 +45,7 @@ const Servicios = () => {
             </Text>
             <Text
               color={"gray.500"}
-              fontSize={{base:"14px", md: "2vh", lg: "18px"}}
+              fontSize={{base:"16px", md: "2vh", lg: "18px"}}
               lineHeight={"1.5em"}
               textAlign={"center"}
               fontWeight={500}
@@ -77,7 +77,7 @@ const Servicios = () => {
             </Text>
             <Text
               color={"gray.500"}
-              fontSize={{base:"14px", md: "2vh", lg: "18px"}}
+              fontSize={{base:"16px", md: "2vh", lg: "18px"}}
               lineHeight={"1.5em"}
               textAlign={"center"}
               fontWeight={500}

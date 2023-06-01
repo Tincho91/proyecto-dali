@@ -11,6 +11,7 @@ import {
   Alert,
   AlertIcon,
 } from "@chakra-ui/react";
+import emailJs from '@emailjs/browser';
 
 const Contacto = () => {
   const gradient = useColorModeValue(
@@ -40,53 +41,74 @@ const Contacto = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     // Perform form validation
     if (!formData.nombre) {
       setFormError("Ingrese su nombre.");
       return;
     }
-  
+
     if (!formData.apellido) {
       setFormError("Ingrese su apellido.");
       return;
     }
-  
+
     if (!formData.telefono || isNaN(formData.telefono)) {
       setFormError("Ingrese un número de teléfono válido.");
       return;
     }
-  
+
     if (!formData.email || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(formData.email)) {
       setFormError("Ingrese un email válido.");
       return;
     }
-  
+
     if (!formData.mensaje) {
       setFormError("Ingrese un mensaje.");
       return;
     }
-  
+
     // Form submission logic
     setIsSubmitting(true);
     setFormError("");
-  
-    setTimeout(() => {
-      setShowMessage(true);
-      setMessage(
-        "Gracias por contactarnos. Nos comunicaremos con usted lo antes posible."
-      );
-  
-      setIsSubmitting(false);
-      setFormData({
-        nombre: "",
-        apellido: "",
-        telefono: "",
-        empresa: "",
-        email: "",
-        mensaje: "",
+
+    emailJs.send(
+      'service_8p1n75h', // Use your own EmailJS service ID here
+      'template_b71qtke', // Use your own EmailJS template ID here
+      {
+        from_name: formData.nombre + " " + formData.apellido,
+        from_email: formData.email,
+        to_email: 'dalitermoplasticos@gmail.com', // Use the email address you want to send to
+        message: formData.mensaje,
+        empresa: formData.empresa,
+        telefono: formData.telefono,
+        email: formData.email,
+        // Add any other template parameters you need
+      },
+      'CU5Pdv5UOxUXGBMJP' // Use your own EmailJS user ID here
+    )
+      .then(() => {
+        setIsSubmitting(false);
+        setShowMessage(true);
+        setMessage(
+          "Gracias por contactarnos. Nos comunicaremos con usted lo antes posible."
+        );
+        setFormData({
+          nombre: "",
+          apellido: "",
+          telefono: "",
+          empresa: "",
+          email: "",
+          mensaje: "",
+        });
+        setTimeout(() => {
+          setShowMessage(false);
+        }, 5000);
+      }, (error) => {
+        setIsSubmitting(false);
+        setFormError("Algo salió mal.");
+        console.log(error);
       });
-    }, 100); // Simulate delay for the message to be sent
   };
 
   return (

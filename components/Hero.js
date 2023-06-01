@@ -21,25 +21,6 @@ const Hero = () => {
 
   const carouselItems = [
     {
-      src: "/images/hero1.png",
-      textParts: [
-        { text: "Apostamos a la ", highlighted: false },
-        { text: "ECONOMIA CIRCULAR", highlighted: true },
-        { text: " como modelo productivo", highlighted: false },
-      ],
-      position: {
-        base: { top: "30%", left: "5%", maxWidth: "39%" },
-        md: { top: "35%", left: "5%", maxWidth: "39%" },
-        lg: { top: "35%", left: "5%", maxWidth: "39%" },
-      },
-      fontSize: {
-        base: isLandscape ? "2.5vw" : "4vw",
-        md: isLandscape ? "2.5vw" : "3vw",
-        lg: isLandscape ? "2.5vw" : "2.5vw",
-        xl: isLandscape ? "35px" : "35px",
-      },
-    },
-    {
       src: "/images/hero2.png",
       textParts: [
         { text: "Nuestros PROCESOS", highlighted: true },
@@ -56,7 +37,26 @@ const Hero = () => {
         lg: { top: "20%", left: "5%", right: "20%", maxWidth: "35%" },
       },
       fontSize: {
-        base: isLandscape ? "2.5vw" : "4vw",
+        base: isLandscape ? "2.5vw" : "5vw",
+        md: isLandscape ? "2.5vw" : "3vw",
+        lg: isLandscape ? "2.5vw" : "2.5vw",
+        xl: isLandscape ? "35px" : "35px",
+      },
+    },
+    {
+      src: "/images/hero1.png",
+      textParts: [
+        { text: "Apostamos a la ", highlighted: false },
+        { text: "ECONOMIA CIRCULAR", highlighted: true },
+        { text: " como modelo productivo", highlighted: false },
+      ],
+      position: {
+        base: { top: "30%", left: "5%", maxWidth: "39%" },
+        md: { top: "35%", left: "5%", maxWidth: "39%" },
+        lg: { top: "35%", left: "5%", maxWidth: "39%" },
+      },
+      fontSize: {
+        base: isLandscape ? "2.5vw" : "5vw",
         md: isLandscape ? "2.5vw" : "3vw",
         lg: isLandscape ? "2.5vw" : "2.5vw",
         xl: isLandscape ? "35px" : "35px",
@@ -73,7 +73,7 @@ const Hero = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 500000,
     pauseOnHover: false,
     fade: true,
     beforeChange: (current, next) => setCurrentSlide(next),

@@ -1,14 +1,11 @@
-'use client'
-
 import { Box, Flex, Text, Icon, Link, useBreakpointValue } from "@chakra-ui/react";
 import { FaInstagram, FaFacebookSquare } from "react-icons/fa";
 
-
-const Footer = () => {
+const Footer = ({ footerRef }) => {
   const flexDirection = useBreakpointValue({ base: "column", sm: "row" });
 
   return (
-    <Box p={4} width={"100%"} maxW={"1200px"} mx={"auto"} mt={"-5vw"}>
+    <Box p={4} width={"100%"} maxW={"1200px"} mx={"auto"} mt={"-5vw"} ref={footerRef}>
       <Flex justifyContent="space-between" alignItems="center" flexDirection={flexDirection}>
         <Flex mb={{base: "20px", sm: "0px"}}>
           <Link href="https://www.instagram.com/yourusername" isExternal>
@@ -19,7 +16,7 @@ const Footer = () => {
           </Link>
         </Flex>
         <Flex flexDirection="column" textAlign="center">
-          <Text color={"primary.400"} fontWeight={"700"}>223 5999980 (Compras y Ventas)</Text>
+          <Text color={"primary.400"} fontWeight={"700"} fontSize={{base: "15px", md: "20px"}}>223 5999980 (Compras y Ventas)</Text>
           <Text color={"primary.400"} fontWeight={"700"}>223 6005501 (Administración)</Text>
           <Text color={"primary.400"} fontWeight={"700"}>dalitermoplasticos@gmail.com</Text>
         </Flex>

@@ -79,7 +79,7 @@ const Sustentabilidad = () => {
               color={"white"}
               pb={10}
               fontSize={{ 
-                base: "14.5px",
+                base: "16px",
                 sm: "2.7vw",
                 md: "2.35vw", 
                 lg: "2.6vw",
@@ -94,7 +94,7 @@ const Sustentabilidad = () => {
             <Text
               color={"white"}
               fontSize={{ 
-                base: "14.5px",
+                base: "16px",
                 sm: "2.7vw",
                 md: "2.35vw", 
                 lg: "2.6vw",
@@ -143,7 +143,7 @@ const Sustentabilidad = () => {
           >
             <Text
               color={"gray.500"}
-              fontSize={{base:"14px", md: "2.5vh", lg: "22px"}}
+              fontSize={{base:"16px", md: "2.5vh", lg: "22px", xl: "30px"}}
               lineHeight={"1.4em"}
               textAlign={"center"}
               fontWeight={500}
