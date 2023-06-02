@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
 import Slider from "react-slick";
 import {
   Box,
@@ -103,7 +104,7 @@ const Hero = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 500000,
+    autoplaySpeed: 6000,
     pauseOnHover: false,
     fade: true,
     beforeChange: (current, next) => setCurrentSlide(next),
@@ -128,6 +129,10 @@ const Hero = () => {
       );
     });
   };
+
+  const quoteTextRefs = quoteText.map(() => useInView({
+    triggerOnce: true, 
+  }));
 
   return (
     <Box position="relative">
@@ -273,7 +278,7 @@ const Hero = () => {
                       key={partIndex}
                     >
                       <motion.div 
-                        initial={{ opacity: 0, x: 50 }}
+                        initial={{ opacity: 0, x: 200 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1, delay: partIndex * 0.2 }}
                         key={partIndex}
