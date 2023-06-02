@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
 import Slider from "react-slick";
 import {
   Box,
@@ -138,53 +139,59 @@ const Hero = () => {
         zIndex={1}
         position="relative"
       >
-        <Slider as="Box" {...settings} ref={sliderRef}>
-          {carouselItems.map((item, index) => {
-            const position = useBreakpointValue(item.position);
-            const fontSize = useBreakpointValue(item.fontSize);
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <Slider as="Box" {...settings} ref={sliderRef}>
+            {carouselItems.map((item, index) => {
+              const position = useBreakpointValue(item.position);
+              const fontSize = useBreakpointValue(item.fontSize);
 
-            return (
-              <Box
-                position="relative"
-                minH={isLandscape ? "60vh" : "40vh"}
-                h="40vh"
-                key={index}
-              >
-                <Image
-                  src={item.src}
-                  alt={`Slide ${index + 1}`}
-                  boxSize="full"
-                  objectFit="cover"
-                  rounded={"xl"}
-                />
-                <Box position="absolute" zIndex={2} {...position}>
-                  <Text fontSize={fontSize} color="white">
-                    {item.textParts.map((part, partIndex) =>
-                      part.highlighted ? (
-                        <Box
-                          as="span"
-                          bg="#489F82"
-                          color="white"
-                          px={1}
-                          borderRadius="md"
-                          whiteSpace="nowrap"
-                          key={partIndex}
-                        >
-                          {part.text}
-                        </Box>
-                      ) : (
-                        <Box as="span" key={partIndex}>
-                          {part.text}
-                        </Box>
-                      )
-                    )}
-                  </Text>
+              return (
+                <Box
+                  position="relative"
+                  minH={isLandscape ? "60vh" : "40vh"}
+                  h="40vh"
+                  key={index}
+                >
+                  <Image
+                    src={item.src}
+                    alt={`Slide ${index + 1}`}
+                    boxSize="full"
+                    objectFit="cover"
+                    rounded={"xl"}
+                  />
+                  <Box position="absolute" zIndex={2} {...position}>
+                    <Text fontSize={fontSize} color="white">
+                      {item.textParts.map((part, partIndex) =>
+                        part.highlighted ? (
+                          <Box
+                            as="span"
+                            bg="#489F82"
+                            color="white"
+                            px={1}
+                            borderRadius="md"
+                            whiteSpace="nowrap"
+                            key={partIndex}
+                          >
+                            {part.text}
+                          </Box>
+                        ) : (
+                          <Box as="span" key={partIndex}>
+                            {part.text}
+                          </Box>
+                        )
+                      )}
+                    </Text>
+                  </Box>
                 </Box>
-              </Box>
-            );
-          })}
-        </Slider>
-        <ul className="custom-dots">{renderDots()}</ul>
+              );
+            })}
+          </Slider>
+          <ul className="custom-dots">{renderDots()}</ul>
+        </motion.div>
       </Box>
       <Box
         className="rotatingImage"
@@ -209,7 +216,7 @@ const Hero = () => {
         mx={"auto"}
       >
         {quoteText.map((quote, quoteIndex) => {
-          // Define the text alignment depending on the index
+          // Define the text properties depending on the index
           let justifyContent;
           if (quoteIndex === 0) justifyContent = "flex-end";
           else if (quoteIndex === 1) justifyContent = "flex-end";
@@ -231,7 +238,7 @@ const Hero = () => {
               justifyContent={justifyContent}
               width={"100%"}
               key={quoteIndex}
-              
+
             >
               {/* Add the opening quote icon to the first quote */}
               {quoteIndex === 0 && (
@@ -243,7 +250,15 @@ const Hero = () => {
                 />
               )}
 
-              <Box flex={1} mx={4} maxWidth={maxWidth} mb={6}>
+              <Box
+                flex={1}
+                mx={4}
+                maxWidth={maxWidth}
+                mb={6}
+                initial={{ opacity: 0, x: 50 }} // Starts invisible and to the right
+                animate={{ opacity: 1, x: 0 }} // Ends fully visible and at its original position
+                transition={{ duration: 1 }} // Animation duration in seconds
+              >
                 <Text textAlign={textAlign}>
                   {quote.parts.map((part, partIndex) => (
                     <Box
@@ -257,7 +272,15 @@ const Hero = () => {
                       }}
                       key={partIndex}
                     >
-                      {part.text}
+                      <motion.div 
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1, delay: partIndex * 0.2 }}
+                        key={partIndex}
+                        style={{ display: 'inline' }}
+                      >
+                        {part.text}
+                      </motion.div>
                     </Box>
                   ))}
                 </Text>

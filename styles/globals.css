@@ -33,11 +33,11 @@ body {
 }
 
 .box1:hover {
-    background-image: url("/images/servicios2.png");
+    background-image: url("/images/servicios2.jpg");
 }
   
 .box2:hover {
-    background-image: url("/images/servicios4.png");
+    background-image: url("/images/servicios4.jpg");
 }
 
 .box3:hover {
