@@ -109,8 +109,8 @@ const Servicios = () => {
             order={3}
           >
             <MotionText
-              initial={{ x: 300, opacity: 0 }}
-              animate={controls1}
+              initial={{ x: -300, opacity: 0 }}
+              animate={controls2}
               color={"primary.400"}
               fontSize={{ base: "6.5vw", md: "4.5vw", lg: "40px" }}
               lineHeight={"1.2em"}
