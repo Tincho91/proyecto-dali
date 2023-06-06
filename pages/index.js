@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Box, useMediaQuery } from '@chakra-ui/react';
-import Navbar from './Navbar';
-import Hero from './Hero';
-import Productos from './Productos';
-import Servicios from './Servicios';
-import Sustentabilidad from './Sustentabilidad';
-import Contacto from './Contacto';
-import Footer from './Footer';
-import WhatsappButton from './utils/WhatsApp';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import Productos from '../components/Productos';
+import Servicios from '../components/Servicios';
+import Sustentabilidad from '../components/Sustentabilidad';
+import Contacto from '../components/Contacto';
+import Footer from '../components/Footer';
+import WhatsappButton from '../components/utils/WhatsApp';
 
 const Index = () => {
   const footerRef = useRef();
